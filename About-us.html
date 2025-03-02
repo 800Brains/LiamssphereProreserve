@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,795 +10,805 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* Base styles */
-body {
-    margin: 0;
-    padding: 0;
-    background-color: white;
-    font-family: 'Nunito', sans-serif;
-    overflow-x: hidden;
-    width: 100%;
-}
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            font-family: 'Nunito', sans-serif;
+            overflow-x: hidden;
+            width: 100%;
+        }
 
-/* Header and Navigation */
-#header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 999;
-}
+        /* Header and Navigation */
+        #header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 999;
+        }
 
-#navbar {
-    display: flex;
-    align-items: center;
-    background-color: white;
-    justify-content: center;
-}
+        #navbar {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            justify-content: center;
+        }
 
-#navbar li {
-    list-style: none;
-    padding: 0 15px;
-    position: relative;
-}
+        #navbar li {
+            list-style: none;
+            padding: 0 15px;
+            position: relative;
+        }
 
-#navbar li a {
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    color: #1a1a1a;
-    transition: 0.3s ease;
-}
+        #navbar li a {
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+            transition: 0.3s ease;
+        }
 
-#navbar li a:hover,
-#navbar li a.active {
-    color: #FFD700;
-}
+        #navbar li a:hover,
+        #navbar li a.active {
+            color: #FFD700;
+        }
 
-#navbar li a.active::after, 
-#navbar li a:hover::after {
-    content: "";
-    width: 30%;
-    height: 2px;
-    background: #FFD700;
-    position: absolute;
-    bottom: -4px;
-    left: 15px;
-}
+        #navbar li a.active::after,
+        #navbar li a:hover::after {
+            content: "";
+            width: 30%;
+            height: 2px;
+            background: #FFD700;
+            position: absolute;
+            bottom: -4px;
+            left: 15px;
+        }
 
-#mobile {
-    display: none;
-}
+        #mobile {
+            display: none;
+        }
 
-#close {
-    display: none;
-}
+        #close {
+            display: none;
+        }
 
-/* Footer Section */
-footer {
-    padding: 20px 10px;
-    background-color: #f8f8f8;
-}
-
-
-footer .col{
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-margin-bottom: 20px;
-}
+        /* Footer Section */
+        footer {
+            padding: 20px 10px;
+            background-color: #f8f8f8;
+        }
 
 
-footer h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-footer p, footer a {
-    font-size: 14px;
-    margin-bottom: 8px;
-}
-
-footer .follow {
-    margin-top: 15px;
-}
-
-footer .follow i {
-    font-size: 18px;
-    margin-right: 10px;
-}
-
-footer .copyright {
-    margin-top: 20px;
-}
-
-/* Mobile Navigation Adjustments */
-@media (max-width: 420px) {
-    #navbar {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        position: fixed;
-        top: 0;
-        right: -300px;
-        height: 100vh;
-        width: 250px;
-        background-color: white;
-        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
-        padding: 80px 0 0 10px;
-        transition: 0.3s;
-        z-index: 1000;
-    }
-    
-
-    #navbar.active {
-        right: 0;
-    }
-
-    #navbar li {
-        margin-bottom: 20px;
-    }
-
-    #mobile {
-        display: flex;
-        align-items: center;
-    }
-
-    #mobile i {
-        color: #1a1a1a;
-        font-size: 24px;
-        padding-left: 20px;
-    }
-
-    #close {
-        display: block;
-        position: absolute;
-        top: 30px;
-        left: 30px;
-        color: #222;
-        font-size: 24px;
-    }
-    
-    /* Container adjustments */
-    .container {
-        flex-direction: column;
-    }
-    footer {
-    padding: 10px 10px;
-    background-color: #f8f8f8;
-}
+        footer .col {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
 
 
-footer .col{
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-margin-bottom: 20px;
-}
+        footer h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        footer p,
+        footer a {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        footer .follow {
+            margin-top: 15px;
+        }
+
+        footer .follow i {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        footer .copyright {
+            margin-top: 20px;
+        }
+
+        /* Mobile Navigation Adjustments */
+        @media (max-width: 420px) {
+            #navbar {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                position: fixed;
+                top: 0;
+                right: -300px;
+                height: 100vh;
+                width: 250px;
+                background-color: white;
+                box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+                padding: 80px 0 0 10px;
+                transition: 0.3s;
+                z-index: 1000;
+            }
 
 
-footer h3 {
-    font-size: 16px;
-    margin-bottom: 5px;
-}
+            #navbar.active {
+                right: 0;
+            }
 
-footer p, footer a {
-    font-size: 14px;
-    margin-bottom: 8px;
-}
+            #navbar li {
+                margin-bottom: 20px;
+            }
 
-footer .follow {
-    margin-top: 15px;
-}
+            #mobile {
+                display: flex;
+                align-items: center;
+            }
 
-footer .follow i {
-    font-size: 17px;
-    margin-top: 5px;
-    margin-right: 10px;
-}
+            #mobile i {
+                color: #1a1a1a;
+                font-size: 24px;
+                padding-left: 20px;
+            }
 
-footer .copyright {
-    margin-top: 20px;
-}
+            #close {
+                display: block;
+                position: absolute;
+                top: 30px;
+                left: 30px;
+                color: #222;
+                font-size: 24px;
+            }
 
+            /* Container adjustments */
+            .container {
+                flex-direction: column;
+            }
 
-
-}
-
-/* Media Queries for different screen sizes */
-@media screen and (max-width: 799px) {
-#navbar {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  /* Adjust padding as needed */
-  padding: 0;
-  background-color: white;
-}
-
-#nav-top {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px;
-}
-
-#close {
-  position: relative;
-  top: 0;
-  right: 0;
-  font-size: 24px;
-  text-decoration: none;
-  color: #333;
-}
-
-#navbar li {
-  list-style: none;
-  margin: 10px 0;
-}
-
-#navbar li a {
-  text-decoration: none;
-  font-weight: 600;
-  color: #222;
-  transition: 0.3s ease;
-  padding: 10px 20px;
-  display: block;
-}
-
-#navbar li a:hover,
-#navbar li a.active {
-  color: gold;
-}
-
-/* Mobile navigation styles */
-#mobile {
-  display: none;
-  cursor: pointer;
-}
-
-#navbar {
-    position: fixed;
-    top: 0;
-    right: -300px; /* Hide off-screen initially */
-    height: 100%;
-    width: 250px;
-    background-color: white;
-    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
-    padding: 0;
-    transition: 0.3s ease;
-    z-index: 1000;
-  }
-  
-  #navbar.active {
-    right: 0; /* Show when active */
-  }
-  
-  #mobile {
-    display: block;
-  }
-  
-  #bar {
-    font-size: 24px;
-  }
-}
-
-/* iPhone X and iPhone 13 mini specific adjustments */
-@media only screen 
-and (device-width: 375px) 
-and (device-height: 812px) 
-and (-webkit-device-pixel-ratio: 3),
-only screen 
-and (device-width: 375px) 
-and (device-height: 812px) 
-and (-webkit-device-pixel-ratio: 2) {
-    .logo {
-        height: 50px;
-        width: 50px;
-    }
-    
-    .text, .text1 {
-        bottom: 5%;
-        width: 90%;
-        padding: 8px;
-        font-size: 12px;
-    }
-    
-    .text h5 {
-        font-size: 14px;
-    }
-    
-    .text h3 {
-        font-size: 12px;
-    }
-
-    
-}
+            footer {
+                padding: 10px 10px;
+                background-color: #f8f8f8;
+            }
 
 
-/* Base styles */
-body {
-    margin: 0;
-    padding: 0;
-    background-color: white;
-    font-family: 'Nunito', sans-serif;
-    overflow-x: hidden;
-    width: 100%;
-}
-
-/* Mobile-specific styles - targeting iPhone X/13 mini (375px width) and similar devices */
-@media only screen and (max-width: 480px) {
-    /* Header adjustments */
-    #header {
-        padding: 5px 10px;
-    }
-    
-    .logo {
-        height: 50px !important;
-        width: 50px !important;
-    }
-    
-    /* Core values section */
-    .container {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 15px !important;
-        padding: 15px !important;
-        max-width: 100% !important;
-        min-width: unset !important;
-    }
-    
-    .card {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-    
-    .logo img {
-        max-width: 120px;
-        margin: 15px auto;
-    }
-    
-    /* Hero section fixes */
-    .hero-content {
-        flex-direction: column;
-        gap: 2rem;
-        padding: 0 5px;
-        margin: 5px;
-    }
-    
-    .hero-text {
-        order: 2;
-        text-align: center;
-    }
-    
-    .hero-image {
-        order: 1;
-        width: 100%;
-    }
-    
-    .hero-image img {
-        width: 100% !important;
-        min-width: unset !important;
-        min-height: unset !important;
-        max-height: 300px;
-        object-fit: contain;
-        margin: 0 auto;
-    }
-    
-    h1 {
-        font-size: 1.8rem !important;
-        margin-top: 0;
-    }
-    
-    p {
-        font-size: 1rem !important;
-    }
-    
-    /* Features section */
-    .features-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        margin-left: 0 !important;
-        gap: 15px;
-    }
-    
-    .feature-card {
-        padding: 15px;
-        margin-bottom: 15px;
-    }
-    
-    /* Team section */
-    .team-section {
-        padding: 2rem 0;
-    }
-    
-    .team-grid {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .team-member {
-        width: 100%;
-        margin-bottom: 25px;
-    }
-    
-    .team-member img {
-        max-width: 150px;
-    }
-    
-    /* Newsletter section */
-    #newsletter {
-        padding: 15px !important;
-    }
-    
-    .containers {
-        flex-direction: column;
-        padding: 15px !important;
-    }
-    
-    .newstext {
-        text-align: center;
-        margin-bottom: 15px;
-        width: 100%;
-    }
-    
-    .form {
-        width: 100% !important;
-        flex-direction: column;
-    }
-    
-    .form input, .button1 {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-    
-    /* Footer adjustments */
-    footer {
-        padding: 20px 15px;
-        flex-direction: column;
-    }
-    
-    footer .col {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    
-    /* Fix for Our Goal, Vision, Why Choose Us cards */
-    #About-us .feature-card {
-        margin-bottom: 15px;
-    }
-    
-    /* CEO section adjustments */
-    .hero-section .hero-content p {
-        text-align: left;
-        font-size: 0.9rem !important;
-    }
-    
-    /* Fix for navbar on mobile */
-    #navbar.active {
-        right: 0px;
-        z-index: 1000;
-        padding-top: 80px;
-    }
-    
-    #mobile {
-        display: flex !important;
-    }
-    
-    #bar {
-        font-size: 24px;
-    }
-    
-    #close {
-        display: block;
-        position: absolute;
-        top: 30px;
-        left: 30px;
-        font-size: 24px;
-    }
-    
-    /* Enhance readability of content */
-    .feature-card h3 {
-        font-size: 1.3rem;
-        margin-top: 0;
-    }
-    
-    /* Fix for the Why Choose Us section list */
-    .feature-card ul, .feature-card ol {
-        padding-left: 20px;
-    }
-    
-    .feature-card li {
-        margin-bottom: 10px;
-    }
-    
-    /* Navigation menu fixes */
-    #navbar li {
-        width: 100%;
-        margin-bottom: 15px;
-    }
-    
-    #navbar li a {
-        display: block;
-        padding: 10px 20px;
-    }
-}
-
-/* Additional fixes for extremely small devices (iPhone SE, etc.) */
-@media only screen and (max-width: 375px) {
-    h1 {
-        font-size: 1.5rem !important;
-    }
-    
-    .hero-image img {
-        max-height: 250px;
-    }
-    
-    .form input {
-        height: 40px;
-    }
-    
-    .team-member img {
-        max-width: 120px;
-    }
-}
-
-/* Comprehensive Mobile Responsive Fixes */
-@media (max-width: 768px) {
-  /* Fix container width issue */
-  .container {
-    min-width: auto !important;
-    max-width: 100% !important;
-    padding: 0 15px !important;
-    margin: 0 auto !important;
-  }
-  
-  /* Hero section adjustments */
-  .hero-section {
-    padding: 2rem 0 !important;
-  }
-  
-  /* Fix hero content layout */
-  .hero-content {
-    flex-direction: column !important;
-    gap: 1.5rem !important;
-    align-items: center !important;
-    width: 100% !important;
-  }
-  
-  /* Hero text adjustments */
-  .hero-text {
-    width: 100% !important;
-    min-width: unset !important;
-    text-align: center !important;
-    padding: 0 10px !important;
-    order: 2 !important; /* Text below image */
-  }
-  
-  .hero-text h1 {
-    font-size: 1.5rem !important;
-    margin-bottom: 1rem !important;
-    word-wrap: break-word !important;
-  }
-  
-  .hero-text p {
-    font-size: 0.9rem !important;
-    margin-bottom: 1rem !important;
-    width: 100% !important;
-  }
-  
-  /* Hero image adjustments */
-  .hero-image {
-    width: 100% !important;
-    min-width: unset !important;
-    display: flex !important;
-    justify-content: center !important;
-    order: 1 !important; /* Image above text */
-  }
-  
-  .hero-image img {
-    min-width: unset !important;
-    min-height: unset !important;
-    max-width: 100% !important;
-    height: auto !important;
-    width: auto !important;
-    max-height: 300px !important;
-    object-fit: contain !important;
-  }
-  
-  /* CTA button adjustments */
-  .cta-button {
-    padding: 0.8rem 1.5rem !important;
-    display: inline-block !important;
-    margin: 0 auto !important;
-  }
-  
-  /* Fix features grid for mobile */
-  .features-grid {
-    display: flex !important;
-    flex-direction: column !important;
-    margin-left: 0 !important;
-    width: 100% !important;
-  }
-  
-  /* Fix feature cards */
-  .feature-card {
-    width: 100% !important;
-    margin-bottom: 1rem !important;
-  }
-  
-  /* Team section fixes */
-  .team-section {
-    padding: 2rem 0 !important;
-  }
-  
-  .team-grid {
-    grid-template-columns: 1fr !important;
-  }
-  
-  /* Fix for the core values container */
-  section .container:has(.card) {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    max-width: 100% !important;
-  }
-  
-  /* Fix for any paragraphs that might overflow */
-  p {
-    word-wrap: break-word !important;
-    max-width: 100% !important;
-  }
-  
+            footer .col {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 20px;
+            }
 
 
-  /* Fix specific issues with element IDs */
-  #team {
-    margin-right: 0 !important;
-    width: 100% !important;
-  }
-}
+            footer h3 {
+                font-size: 16px;
+                margin-bottom: 5px;
+            }
 
-/* Extra small devices */
-@media (max-width: 480px) {
-  .hero-text h1 {
-    font-size: 1.2rem !important;
-  }
-  
-  .hero-text p {
-    font-size: 0.85rem !important;
-  }
-  
-  .hero-image img {
-    max-height: 250px !important;
-  }
-  
-  /* Add more space between sections */
-  section {
-    margin-bottom: 2rem !important;
-  }
-}
+            footer p,
+            footer a {
+                font-size: 14px;
+                margin-bottom: 8px;
+            }
+
+            footer .follow {
+                margin-top: 15px;
+            }
+
+            footer .follow i {
+                font-size: 17px;
+                margin-top: 5px;
+                margin-right: 10px;
+            }
+
+            footer .copyright {
+                margin-top: 20px;
+            }
+
+
+
+        }
+
+        /* Media Queries for different screen sizes */
+        @media screen and (max-width: 799px) {
+            #navbar {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                /* Adjust padding as needed */
+                padding: 0;
+                background-color: white;
+            }
+
+            #nav-top {
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                padding: 10px;
+            }
+
+            #close {
+                position: relative;
+                top: 0;
+                right: 0;
+                font-size: 24px;
+                text-decoration: none;
+                color: #333;
+            }
+
+            #navbar li {
+                list-style: none;
+                margin: 10px 0;
+            }
+
+            #navbar li a {
+                text-decoration: none;
+                font-weight: 600;
+                color: #222;
+                transition: 0.3s ease;
+                padding: 10px 20px;
+                display: block;
+            }
+
+            #navbar li a:hover,
+            #navbar li a.active {
+                color: gold;
+            }
+
+            /* Mobile navigation styles */
+            #mobile {
+                display: none;
+                cursor: pointer;
+            }
+
+            #navbar {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                /* Hide off-screen initially */
+                height: 100%;
+                width: 250px;
+                background-color: white;
+                box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+                padding: 0;
+                transition: 0.3s ease;
+                z-index: 1000;
+            }
+
+            #navbar.active {
+                right: 0;
+                /* Show when active */
+            }
+
+            #mobile {
+                display: block;
+            }
+
+            #bar {
+                font-size: 24px;
+            }
+        }
+
+        /* iPhone X and iPhone 13 mini specific adjustments */
+        @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3),
+        only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 2) {
+            .logo {
+                height: 50px;
+                width: 50px;
+            }
+
+            .text,
+            .text1 {
+                bottom: 5%;
+                width: 90%;
+                padding: 8px;
+                font-size: 12px;
+            }
+
+            .text h5 {
+                font-size: 14px;
+            }
+
+            .text h3 {
+                font-size: 12px;
+            }
+
+
+        }
+
+
+        /* Base styles */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            font-family: 'Nunito', sans-serif;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Mobile-specific styles - targeting iPhone X/13 mini (375px width) and similar devices */
+        @media only screen and (max-width: 480px) {
+
+            /* Header adjustments */
+            #header {
+                padding: 5px 10px;
+            }
+
+            .logo {
+                height: 50px !important;
+                width: 50px !important;
+            }
+
+            /* Core values section */
+            .container {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 15px !important;
+                padding: 15px !important;
+                max-width: 100% !important;
+                min-width: unset !important;
+            }
+
+            .card {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .logo img {
+                max-width: 120px;
+                margin: 15px auto;
+            }
+
+            /* Hero section fixes */
+            .hero-content {
+                flex-direction: column;
+                gap: 2rem;
+                padding: 0 5px;
+                margin: 5px;
+            }
+
+            .hero-text {
+                order: 2;
+                text-align: center;
+            }
+
+            .hero-image {
+                order: 1;
+                width: 100%;
+            }
+
+            .hero-image img {
+                width: 100% !important;
+                min-width: unset !important;
+                min-height: unset !important;
+                max-height: 300px;
+                object-fit: contain;
+                margin: 0 auto;
+            }
+
+            h1 {
+                font-size: 1.8rem !important;
+                margin-top: 0;
+            }
+
+            p {
+                font-size: 1rem !important;
+            }
+
+            /* Features section */
+            .features-grid {
+                display: flex !important;
+                flex-direction: column !important;
+                margin-left: 0 !important;
+                gap: 15px;
+            }
+
+            .feature-card {
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+
+            /* Team section */
+            .team-section {
+                padding: 2rem 0;
+            }
+
+            .team-grid {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .team-member {
+                width: 100%;
+                margin-bottom: 25px;
+            }
+
+            .team-member img {
+                max-width: 150px;
+            }
+
+            /* Newsletter section */
+            #newsletter {
+                padding: 15px !important;
+            }
+
+            .containers {
+                flex-direction: column;
+                padding: 15px !important;
+            }
+
+            .newstext {
+                text-align: center;
+                margin-bottom: 15px;
+                width: 100%;
+            }
+
+            .form {
+                width: 100% !important;
+                flex-direction: column;
+            }
+
+            .form input,
+            .button1 {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            /* Footer adjustments */
+            footer {
+                padding: 20px 15px;
+                flex-direction: column;
+            }
+
+            footer .col {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            /* Fix for Our Goal, Vision, Why Choose Us cards */
+            #About-us .feature-card {
+                margin-bottom: 15px;
+            }
+
+            /* CEO section adjustments */
+            .hero-section .hero-content p {
+                text-align: left;
+                font-size: 0.9rem !important;
+            }
+
+            /* Fix for navbar on mobile */
+            #navbar.active {
+                right: 0px;
+                z-index: 1000;
+                padding-top: 80px;
+            }
+
+            #mobile {
+                display: flex !important;
+            }
+
+            #bar {
+                font-size: 24px;
+            }
+
+            #close {
+                display: block;
+                position: absolute;
+                top: 30px;
+                left: 30px;
+                font-size: 24px;
+            }
+
+            /* Enhance readability of content */
+            .feature-card h3 {
+                font-size: 1.3rem;
+                margin-top: 0;
+            }
+
+            /* Fix for the Why Choose Us section list */
+            .feature-card ul,
+            .feature-card ol {
+                padding-left: 20px;
+            }
+
+            .feature-card li {
+                margin-bottom: 10px;
+            }
+
+            /* Navigation menu fixes */
+            #navbar li {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+            #navbar li a {
+                display: block;
+                padding: 10px 20px;
+            }
+        }
+
+        /* Additional fixes for extremely small devices (iPhone SE, etc.) */
+        @media only screen and (max-width: 375px) {
+            h1 {
+                font-size: 1.5rem !important;
+            }
+
+            .hero-image img {
+                max-height: 250px;
+            }
+
+            .form input {
+                height: 40px;
+            }
+
+            .team-member img {
+                max-width: 120px;
+            }
+        }
+
+        /* Comprehensive Mobile Responsive Fixes */
+        @media (max-width: 768px) {
+
+            /* Fix container width issue */
+            .container {
+                min-width: auto !important;
+                max-width: 100% !important;
+                padding: 0 15px !important;
+                margin: 0 auto !important;
+            }
+
+            /* Hero section adjustments */
+            .hero-section {
+                padding: 2rem 0 !important;
+            }
+
+            /* Fix hero content layout */
+            .hero-content {
+                flex-direction: column !important;
+                gap: 1.5rem !important;
+                align-items: center !important;
+                width: 100% !important;
+            }
+
+            /* Hero text adjustments */
+            .hero-text {
+                width: 100% !important;
+                min-width: unset !important;
+                text-align: center !important;
+                padding: 0 10px !important;
+                order: 2 !important;
+                /* Text below image */
+            }
+
+            .hero-text h1 {
+                font-size: 1.5rem !important;
+                margin-bottom: 1rem !important;
+                word-wrap: break-word !important;
+            }
+
+            .hero-text p {
+                font-size: 0.9rem !important;
+                margin-bottom: 1rem !important;
+                width: 100% !important;
+            }
+
+            /* Hero image adjustments */
+            .hero-image {
+                width: 100% !important;
+                min-width: unset !important;
+                display: flex !important;
+                justify-content: center !important;
+                order: 1 !important;
+                /* Image above text */
+            }
+
+            .hero-image img {
+                min-width: unset !important;
+                min-height: unset !important;
+                max-width: 100% !important;
+                height: auto !important;
+                width: auto !important;
+                max-height: 300px !important;
+                object-fit: contain !important;
+            }
+
+            /* CTA button adjustments */
+            .cta-button {
+                padding: 0.8rem 1.5rem !important;
+                display: inline-block !important;
+                margin: 0 auto !important;
+            }
+
+            /* Fix features grid for mobile */
+            .features-grid {
+                display: flex !important;
+                flex-direction: column !important;
+                margin-left: 0 !important;
+                width: 100% !important;
+            }
+
+            /* Fix feature cards */
+            .feature-card {
+                width: 100% !important;
+                margin-bottom: 1rem !important;
+            }
+
+            /* Team section fixes */
+            .team-section {
+                padding: 2rem 0 !important;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* Fix for the core values container */
+            section .container:has(.card) {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                max-width: 100% !important;
+            }
+
+            /* Fix for any paragraphs that might overflow */
+            p {
+                word-wrap: break-word !important;
+                max-width: 100% !important;
+            }
+
+
+
+            /* Fix specific issues with element IDs */
+            #team {
+                margin-right: 0 !important;
+                width: 100% !important;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 1.2rem !important;
+            }
+
+            .hero-text p {
+                font-size: 0.85rem !important;
+            }
+
+            .hero-image img {
+                max-height: 250px !important;
+            }
+
+            /* Add more space between sections */
+            section {
+                margin-bottom: 2rem !important;
+            }
+        }
     </style>
 </head>
+
 <body>
     <!-- Header Section -->
     <section id="header">
-        <a href="Home.html"><img src="Liamsphere logo 2.jpeg" class="logo" alt="" height="80px" width="80px"></a>
+        <a href="index.html"><img src="Liamsphere logo 2.jpeg" class="logo" alt="" height="80px" width="80px"></a>
         <div>
-          <ul id="navbar" style="background-color: white;">
-            <div id="nav-top">
-              <a href="#" id="close"><i class="far fa-times"></i></a>
-            </div>
-            <li><a id="nav-home"  href="Home.html">HOME</a></li>
-            <li><a id="nav-services" href="Our-services.html">OUR SERVICES</a></li>
-            <li><a id="nav-about" class="active" href="About-us.html">ABOUT US</a></li>
-            <li><a id="nav-contact" href="Contact-us.html">CONTACT US</a></li>
-            <li><a id="nav-register" href="Register.html">REGISTER WITH US</a></li>
-          </ul>
+            <ul id="navbar" style="background-color: white;">
+                <div id="nav-top">
+                    <a href="#" id="close"><i class="far fa-times"></i></a>
+                </div>
+                <li><a id="nav-home" href="index.html">HOME</a></li>
+                <li><a id="nav-services" href="Our-services.html">OUR SERVICES</a></li>
+                <li><a id="nav-about" class="active" href="About-us.html">ABOUT US</a></li>
+                <li><a id="nav-contact" href="Contact-us.html">CONTACT US</a></li>
+                <li><a id="nav-register" href="Register.html">REGISTER WITH US</a></li>
+            </ul>
         </div>
         <div id="mobile">
-          <i id="bar" class="fas fa-outdent"></i>
+            <i id="bar" class="fas fa-outdent"></i>
         </div>
-      </section>
+    </section>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-    const bar = document.getElementById("bar");
-    const close = document.getElementById("close");
-    const nav = document.getElementById("navbar");
+            const bar = document.getElementById("bar");
+            const close = document.getElementById("close");
+            const nav = document.getElementById("navbar");
 
-    if (bar) {
-        bar.addEventListener("click", (e) => {
-            e.stopPropagation(); // Prevent event bubbling
-            nav.classList.add("active");
+            if (bar) {
+                bar.addEventListener("click", (e) => {
+                    e.stopPropagation(); // Prevent event bubbling
+                    nav.classList.add("active");
+                });
+            }
+
+            if (close) {
+                close.addEventListener("click", (e) => {
+                    e.stopPropagation(); // Prevent event bubbling
+                    nav.classList.remove("active");
+                });
+            }
+
+            // Close navbar when clicking outside
+            document.addEventListener("click", (e) => {
+                if (!nav.contains(e.target) && !bar.contains(e.target)) {
+                    nav.classList.remove("active");
+                }
+            });
         });
-    }
-
-    if (close) {
-        close.addEventListener("click", (e) => {
-            e.stopPropagation(); // Prevent event bubbling
-            nav.classList.remove("active");
-        });
-    }
-
-    // Close navbar when clicking outside
-    document.addEventListener("click", (e) => {
-        if (!nav.contains(e.target) && !bar.contains(e.target)) {
-            nav.classList.remove("active");
-        }
-    });
-});
     </script>
-        <style>
-            @media(max-width:779px){
-    .section-p1{
-        padding: 40px 40px;
-    }
-#navbar{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    position: fixed;
-    top: 0;
-    right: -300px;
-    height: 100vh;
-    width: 300px;
-    background-color:#e3e6f3 ;
-    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
-    padding: 80px 0 0 10px;
-    transition: 0.3s;
-}
+    <style>
+        @media(max-width:779px) {
+            .section-p1 {
+                padding: 40px 40px;
+            }
 
-#navbar .active{
-    right: 0px;
-}
+            #navbar {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                position: fixed;
+                top: 0;
+                right: -300px;
+                height: 100vh;
+                width: 300px;
+                background-color: #e3e6f3;
+                box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+                padding: 80px 0 0 10px;
+                transition: 0.3s;
+            }
 
-#navbar li{
-    margin-bottom: 25px;
-}
+            #navbar .active {
+                right: 0px;
+            }
 
-#mobile{
-    display: flex;
-    align-items: center;
-}
+            #navbar li {
+                margin-bottom: 25px;
+            }
 
-#mobile i{
-    color: #1a1a1a;
-    font-size: 24px;
-    padding-left: 20px;
-}
+            #mobile {
+                display: flex;
+                align-items: center;
+            }
 
-#close{
-    display: initial;
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    color: #222;
-    font-size: 24px;
-}
-}
+            #mobile i {
+                color: #1a1a1a;
+                font-size: 24px;
+                padding-left: 20px;
+            }
 
-@media(max-width: 477px){
-    #navbar{
-        padding: 10px 30px;
-    }
-    
-}
+            #close {
+                display: initial;
+                position: absolute;
+                top: 30px;
+                left: 30px;
+                color: #222;
+                font-size: 24px;
+            }
+        }
 
-        </style>
+        @media(max-width: 477px) {
+            #navbar {
+                padding: 10px 30px;
+            }
+
+        }
+    </style>
     </section>
 
-    <section id="About-us"; 
-    background-size: cover; background-position: center; height: 100%;">
-        <center><h3 style="color: black; padding: 10px; margin: 10px;">ABOUT US</h3></center>
-        <center><h3 style="color: black; padding: 10px; margin: 10px;">OUR CORE VALUES</h3></center>
+    <section id="About-us" ; background-size: cover; background-position: center; height: 100%;">
+        <center>
+            <h3 style="color: black; padding: 10px; margin: 10px;">ABOUT US</h3>
+        </center>
+        <center>
+            <h3 style="color: black; padding: 10px; margin: 10px;">OUR CORE VALUES</h3>
+        </center>
         <section>
             <style>
                 .container {
@@ -808,6 +819,7 @@ body {
                     max-width: 900px;
                     padding: 20px;
                 }
+
                 .logo {
                     grid-column: 2 / 3;
                     grid-row: 1 / 3;
@@ -815,28 +827,49 @@ body {
                     justify-content: center;
                     align-items: center;
                 }
+
                 .logo img {
                     max-width: 200px;
                 }
+
                 .card {
                     padding: 15px;
                     background: #f9f9f9;
                     border-radius: 10px;
                 }
-                .top-left { grid-column: 1 / 2; grid-row: 1 / 2; }
-                .top-right { grid-column: 3 / 4; grid-row: 1 / 2; }
-                .bottom-left { grid-column: 1 / 2; grid-row: 2 / 3; }
-                .bottom-right { grid-column: 3 / 4; grid-row: 2 / 3; }
+
+                .top-left {
+                    grid-column: 1 / 2;
+                    grid-row: 1 / 2;
+                }
+
+                .top-right {
+                    grid-column: 3 / 4;
+                    grid-row: 1 / 2;
+                }
+
+                .bottom-left {
+                    grid-column: 1 / 2;
+                    grid-row: 2 / 3;
+                }
+
+                .bottom-right {
+                    grid-column: 3 / 4;
+                    grid-row: 2 / 3;
+                }
+
                 @media (max-width: 768px) {
                     .container {
                         display: flex;
                         flex-direction: column;
                         align-items: center;
                     }
-                    .logo { order: -1; 
-                    border-radius: 50%;}
+
+                    .logo {
+                        order: -1;
+                        border-radius: 50%;
+                    }
                 }
-                
             </style>
             <div class="container">
                 <div class="card top-left">
@@ -856,7 +889,8 @@ body {
                 </div>
                 <div class="card bottom-right">
                     <h2 style="color: black; font-size: 25px; font:bold;">Quality</h2>
-                    <p>We invest in delivering high-quality, premium preserving and maintenance services that exceed expectations.</p>
+                    <p>We invest in delivering high-quality, premium preserving and maintenance services that exceed
+                        expectations.</p>
                 </div>
             </div>
         </section>
@@ -869,14 +903,14 @@ body {
                     --light-gold: #FFF8DC;
                     --text-dark: #333333;
                 }
-        
+
                 * {
                     margin: 0;
                     padding: 0;
                     box-sizing: border-box;
                     font-family: system-ui, -apple-system, sans-serif;
                 }
-        
+
                 .container {
                     min-width: 1200px;
                     margin: 0 auto;
@@ -884,21 +918,21 @@ body {
                     justify-content: space-between;
                     flex-wrap: wrap;
                 }
-        
+
                 .hero-section {
                     padding: 8rem 0 4rem;
                     background: white;
                     flex-wrap: wrap;
                     justify-content: space-between;
                 }
-        
+
                 .hero-content {
                     display: flex;
                     align-items: center;
                     gap: 4rem;
                     justify-content: space-between;
                 }
-        
+
                 .hero-text {
                     flex: 1;
                     min-width: 300px;
@@ -906,39 +940,39 @@ body {
 
                 /* Add this CSS to your existing styles */
 
-.container img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-}
+                .container img {
+                    width: 100%;
+                    height: auto;
+                    object-fit: contain;
+                    transition: transform 0.3s ease;
+                }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .container {
-        max-width: 400px;
-        padding: 15px;
-    }
-}
+                /* Responsive adjustments */
+                @media (max-width: 768px) {
+                    .container {
+                        max-width: 400px;
+                        padding: 15px;
+                    }
+                }
 
-@media (max-width: 480px) {
-    .container {
-        max-width: 300px;
-        padding: 10px;
-    }
-}
-        
+                @media (max-width: 480px) {
+                    .container {
+                        max-width: 300px;
+                        padding: 10px;
+                    }
+                }
+
                 .hero-image {
                     flex: 1;
                     min-width: 300px;
-                    
+
                 }
 
                 .hero-image:hover {
                     transform: scale(1.02);
                 }
 
-        
+
                 .hero-image img {
                     width: 100%;
                     border-radius: 20px;
@@ -946,20 +980,20 @@ body {
                     min-height: 500px;
                     object-fit: contain;
                     transition: transform 0.3s ease;
-                    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
                 }
-        
+
                 h1 {
                     color: var(--dark-gold);
                     font-size: 2.5rem;
                     margin-bottom: 1.5rem;
                 }
-        
+
                 p {
                     margin-bottom: 1.5rem;
                     font-size: 1.1rem;
                 }
-        
+
                 .cta-button {
                     display: inline-block;
                     background: var(--dark-gold);
@@ -970,42 +1004,42 @@ body {
                     font-weight: 600;
                     transition: transform 0.2s;
                 }
-        
+
                 .cta-button:hover {
                     transform: translateY(-2px);
                     background: var(--primary-gold);
                     color: var(--text-dark);
                 }
-        
+
                 .features-section {
                     background: var(--light-gold);
                     padding: 4rem 0;
                 }
-        
+
                 .features-grid {
                     display: grid;
                     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
                     gap: 2rem;
                     margin-top: 2rem;
                 }
-        
+
                 .feature-card {
                     background: white;
                     padding: 2rem;
                     border-radius: 12px;
-                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
                     transition: transform 0.2s;
                 }
-        
+
                 .feature-card:hover {
                     transform: translateY(-5px);
                     box-shadow: 0 4px 12px rgba(184, 134, 11, 0.2);
                 }
-        
+
                 .team-section {
                     padding: 4rem 0;
                 }
-        
+
                 .team-grid {
                     display: grid;
                     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -1014,11 +1048,11 @@ body {
                     justify-content: space-between;
                     flex-wrap: wrap;
                 }
-        
+
                 .team-member {
                     text-align: center;
                 }
-        
+
                 .team-member img {
                     width: 100%;
                     max-width: 200px;
@@ -1028,13 +1062,13 @@ body {
                     justify-content: space-between;
                     flex-wrap: wrap;
                 }
-        
+
                 @media (max-width: 768px) {
                     .hero-content {
                         flex-direction: column;
                         text-align: center;
                     }
-        
+
                     h1 {
                         font-size: 2rem;
                     }
@@ -1045,9 +1079,13 @@ body {
                     <div class="hero-content">
                         <div class="hero-text">
                             <h1>Liamsphere makes life easier</h1>
-                            <p>We approached lots of homes and businesses and found the main problems people experienced with service companies were Reliability and the Consistent Quality of service.</p>
-                            <p>Some had more problems, but the majority told us these 2 basic requirements were frequently neglected.</p>
-                            <p>Liamsphere tackles these issues head on, and we do it whilst empowering our team members to enjoy their jobs when previously they've worked long, hard hours in jobs they don't enjoy, for companies that don't care about them.</p>
+                            <p>We approached lots of homes and businesses and found the main problems people experienced
+                                with service companies were Reliability and the Consistent Quality of service.</p>
+                            <p>Some had more problems, but the majority told us these 2 basic requirements were
+                                frequently neglected.</p>
+                            <p>Liamsphere tackles these issues head on, and we do it whilst empowering our team members
+                                to enjoy their jobs when previously they've worked long, hard hours in jobs they don't
+                                enjoy, for companies that don't care about them.</p>
                             <a href="Our-services.html" class="cta-button">View our Service Packages</a>
                         </div>
                         <div class="hero-image">
@@ -1056,12 +1094,15 @@ body {
                     </div>
                 </div>
             </section>
-        
+
             <section class="features-section">
                 <div class="container">
                     <div id="team" style="margin-right: 20px;">
-                    <h1>Liamsphere cares for its team</h1>
-                    <p>Liamsphere is proud to pay our team members above industry standard. Paying our staff more than the industry average is an ethos that's existed since the day Liamsphere was created. This alongside our rigorous vetting process enables us to find the best team members and reward them appropriately.</p>
+                        <h1>Liamsphere cares for its team</h1>
+                        <p>Liamsphere is proud to pay our team members above industry standard. Paying our staff more
+                            than the industry average is an ethos that's existed since the day Liamsphere was created.
+                            This alongside our rigorous vetting process enables us to find the best team members and
+                            reward them appropriately.</p>
                     </div>
                     <div class="features-grid" style="margin-left: 500px;">
                         <div class="feature-card">
@@ -1077,43 +1118,49 @@ body {
                             <p>Consistent, reliable service you can trust</p>
                         </div>
                     </div>
+                </div>
+                <div class="container">
+                    <div class="feature-card">
+                        <center>
+                            <h3 style="color: black; font-size: 15px;">OUR GOAL</h3>
+                        </center>
+                        <p style="color: black;">To protect, maintain, and enhance residential and
+                            commercial properties through reliable, cost-effective,
+                            and professional preservation and maintenance services.
+                            We help banks, real estate agents, landlords, and property
+                            owners safeguard their investments by ensuring properties remain secure,
+                            habitable, and compliant with industry standards.
+                            Our commitment to quality service, efficiency, and sustainability
+                            drives us to uphold property value and contribute to the betterment
+                            of communities.</p>
                     </div>
-                    <div class="container">
-                        <div class="feature-card">
-                            <center><h3 style="color: black; font-size: 15px;">OUR GOAL</h3></center>
-                            <p style="color: black;">To protect, maintain, and enhance residential and 
-                                commercial properties through reliable, cost-effective, 
-                                and professional preservation and maintenance services. 
-                                We help banks, real estate agents, landlords, and property 
-                                owners safeguard their investments by ensuring properties remain secure,
-                                 habitable, and compliant with industry standards. 
-                                 Our commitment to quality service, efficiency, and sustainability 
-                                 drives us to uphold property value and contribute to the betterment 
-                                 of communities.</p>
-                            </div>
 
-                            <div class="feature-card">
-                                <center><h3 style="color: black; font-size: 15px;">OUR VISION </h3></center>
-                                <p style="color: black;">To be the leading property preservation and 
-                                    maintenance company in Nigeria and beyond, 
-                                    setting the standard for excellence, reliability, 
-                                    and innovation in the industry. 
-                                    We envision a future where every property—vacant or 
-                                    occupied—is well-maintained, secure, and retains its full value, 
-                                    contributing to thriving communities and a stronger real estate sector.</p>
-                                </div>
-                                <div class="feature-card">
-                                    <center><h3 style="color: black; font-size: 15px;">WHY CHOOSE US(ProPreserveNG)? </h3></center>
-                                    <p style="color: black;"> At LIAMSPHERE ProPreserveNG, 
-                                        we are dedicated to delivering top-tier property preservation and 
-                                        maintenance services across Nigeria. With a focus on quality, 
-                                        efficiency, and customer satisfaction, 
-                                        we help protect and maintain properties for banks, 
-                                        real estate agents,
-                                         landlords, and property owners. <br>   
-                                    </p>
-                                    </div>
-                            
+                    <div class="feature-card">
+                        <center>
+                            <h3 style="color: black; font-size: 15px;">OUR VISION </h3>
+                        </center>
+                        <p style="color: black;">To be the leading property preservation and
+                            maintenance company in Nigeria and beyond,
+                            setting the standard for excellence, reliability,
+                            and innovation in the industry.
+                            We envision a future where every property—vacant or
+                            occupied—is well-maintained, secure, and retains its full value,
+                            contributing to thriving communities and a stronger real estate sector.</p>
+                    </div>
+                    <div class="feature-card">
+                        <center>
+                            <h3 style="color: black; font-size: 15px;">WHY CHOOSE US(ProPreserveNG)? </h3>
+                        </center>
+                        <p style="color: black;"> At LIAMSPHERE ProPreserveNG,
+                            we are dedicated to delivering top-tier property preservation and
+                            maintenance services across Nigeria. With a focus on quality,
+                            efficiency, and customer satisfaction,
+                            we help protect and maintain properties for banks,
+                            real estate agents,
+                            landlords, and property owners. <br>
+                        </p>
+                    </div>
+
                 </div>
             </section>
 
@@ -1122,12 +1169,34 @@ body {
                     <div class="hero-content">
                         <div class="hero-text">
                             <h1>Meet Our Founder and CEO – Madu Williams Nnaemeka</h1>
-                            <p>At the heart of LIAMSPHERE ProPreserveNG is a vision inspired by faith, excellence, and a commitment to solving one of Nigeria’s biggest real estate challenges. Our Founder and CEO, Madu Williams Nnaemeka, is a firm believer that every great idea is God-given, and with the right mindset, discipline, and purpose, it can transform lives and industries.</p>
-                            <p>After spending time in Europe, he saw firsthand how properties were carefully preserved, maintained, and enhanced, ensuring they retained their value and structural integrity. But upon returning to Nigeria, he realized a pressing gap: there was no structured, professional, and dedicated approach to property preservation. Many real estate assets were deteriorating due to neglect, poor maintenance, and a lack of specialized services.</p>
-                            <p>Seeing this challenge, he knew that God was leading him to be a solution, to create something that had never been done before in Nigeria. With this conviction, LIAMSPHERE ProPreserveNG was established, the first of its kind in Nigeria, bringing international standards of property preservation, enhancement, and maintenance to the Nigerian market.</p>
-                            <p>Guided by his faith in God, integrity, and a passion for excellence, Madu Williams Nnaemeka has built LIAMSPHERE ProPreserveNG on the foundation of honesty, diligence, and service. The company is not just about business; it is about creating impact, offering solutions, and ensuring that properties remain valuable assets for generations to come.</p>
-                            <p>As a leader, he firmly believes that true success comes from God and the ability to serve others with excellence. Through strategic partnerships, cutting-edge technology, and a customer-first approach, he envisions expanding this mission across Nigeria, ensuring that property preservation becomes a standard practice in the real estate industry.</p>
-                            <p>Every step of this journey has been a testament to God’s guidance, favor, and provision, and as LIAMSPHERE ProPreserveNG grows, so does the commitment to upholding faith-based principles in business, leadership, and service.</p>
+                            <p>At the heart of LIAMSPHERE ProPreserveNG is a vision inspired by faith, excellence, and a
+                                commitment to solving one of Nigeria’s biggest real estate challenges. Our Founder and
+                                CEO, Madu Williams Nnaemeka, is a firm believer that every great idea is God-given, and
+                                with the right mindset, discipline, and purpose, it can transform lives and industries.
+                            </p>
+                            <p>After spending time in Europe, he saw firsthand how properties were carefully preserved,
+                                maintained, and enhanced, ensuring they retained their value and structural integrity.
+                                But upon returning to Nigeria, he realized a pressing gap: there was no structured,
+                                professional, and dedicated approach to property preservation. Many real estate assets
+                                were deteriorating due to neglect, poor maintenance, and a lack of specialized services.
+                            </p>
+                            <p>Seeing this challenge, he knew that God was leading him to be a solution, to create
+                                something that had never been done before in Nigeria. With this conviction, LIAMSPHERE
+                                ProPreserveNG was established, the first of its kind in Nigeria, bringing international
+                                standards of property preservation, enhancement, and maintenance to the Nigerian market.
+                            </p>
+                            <p>Guided by his faith in God, integrity, and a passion for excellence, Madu Williams
+                                Nnaemeka has built LIAMSPHERE ProPreserveNG on the foundation of honesty, diligence, and
+                                service. The company is not just about business; it is about creating impact, offering
+                                solutions, and ensuring that properties remain valuable assets for generations to come.
+                            </p>
+                            <p>As a leader, he firmly believes that true success comes from God and the ability to serve
+                                others with excellence. Through strategic partnerships, cutting-edge technology, and a
+                                customer-first approach, he envisions expanding this mission across Nigeria, ensuring
+                                that property preservation becomes a standard practice in the real estate industry.</p>
+                            <p>Every step of this journey has been a testament to God’s guidance, favor, and provision,
+                                and as LIAMSPHERE ProPreserveNG grows, so does the commitment to upholding faith-based
+                                principles in business, leadership, and service.</p>
                         </div>
                         <div class="hero-image">
                             <img src="liams.jpeg" alt="Liamsphere Team" />
@@ -1135,29 +1204,31 @@ body {
                     </div>
                 </div>
             </section>
-        
-        
+
+
             <section class="team-section">
-                    <center><h1>Meet Our Team</h1></center>
+                <center>
+                    <h1>Meet Our Team</h1>
+                </center>
                 <div class="container">
-                        <div class="team-member">
-                            <img src="WhatsApp Image 2025-02-22 at 18.13.01.jpeg" alt="Team Member" />
-                            <h3>Customer Support</h3>
-                            <p>24/7 assistance for all your needs</p>
-                        </div>
-                        <div class="team-member">
-                            <img src="WhatsApp Image 2025-02-22 at 18.13.01.jpeg" alt="Team Member" />
-                            <h3>Professional Staff</h3>
-                            <p>Experienced and dedicated team</p>
-                        </div>
-                        <div class="team-member">
-                            <img src="WhatsApp Image 2025-02-22 at 18.13.01.jpeg" alt="Team Member" />
-                            <h3>Quality Control</h3>
-                            <p>Ensuring consistent service</p>
-                        </div>
+                    <div class="team-member">
+                        <img src="WhatsApp Image 2025-02-22 at 18.13.01.jpeg" alt="Team Member" />
+                        <h3>Customer Support</h3>
+                        <p>24/7 assistance for all your needs</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="WhatsApp Image 2025-02-22 at 18.13.01.jpeg" alt="Team Member" />
+                        <h3>Professional Staff</h3>
+                        <p>Experienced and dedicated team</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="WhatsApp Image 2025-02-22 at 18.13.01.jpeg" alt="Team Member" />
+                        <h3>Quality Control</h3>
+                        <p>Ensuring consistent service</p>
+                    </div>
                 </div>
             </section>
-        
+
             <script>
                 // Add smooth scrolling for anchor links
                 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1168,7 +1239,7 @@ body {
                         });
                     });
                 });
-        
+
                 // Add scroll animation for navbar
                 window.addEventListener('scroll', () => {
                     const navbar = document.querySelector('.navbar');
@@ -1183,49 +1254,54 @@ body {
     </section>
 
 
-      <!-- Footer Section -->
-      <footer class="section-p1">
+    <!-- Footer Section -->
+    <footer class="section-p1">
         <div class="col">
-       <h3>Contact</h3>
-       <p><strong>Address: </strong>Pleasant view estate</p>
-       <p><strong>Phone: </strong>(+234) 80-2276-7228 & (+234) 70-4647-4965</p>
-       <p><strong>Hours: </strong>8:00 - 18:30</p>
-       <div class="follow">
-       <h3>Follow us</h3>
-       <div class="icon">
-       <a href="https://www.facebook.com/share/1AwpdstAph/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
-       <i class="fab fa-facebook-f"></i>
-       </a>
-       <a href="https://x.com/propreserveng?s=11" target="_blank" rel="noopener noreferrer">
-       <i class="fab fa-twitter"></i>
-       </a>
-       <a href="https://www.instagram.com/liamsphere_propreserveng?igsh=MTdnZW5jYWdkZXBpbA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">
-       <i class="fab fa-instagram"></i>
-       </a>
-       <a href="https://pin.it/70dbedhiS" target="_blank" rel="noopener noreferrer">
-       <i class="fab fa-pinterest-p"></i>
-       </a>
-       <a href="https://youtube.com/@liamspherepropreserveng?si=3K05Xx9BHN6qgpI6" target="_blank" rel="noopener noreferrer">
-       <i class="fab fa-youtube"></i>
-       </a>
-       <a href="https://wa.me/2347046474965?text=Hello%20I%20am%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer">
-       <i class="fab fa-whatsapp"></i>
-       </a>
-       </div>
-       </div>
-       </div>
-       <div class="col">
-       <h3>About</h3>
-       <a href="About-us.html">About us</a>
-       <a href="Privacy-Policy.html">Privacy policy</a>
-       <a href="T&C.html">Terms & Conditions</a>
-       <a href="Contact-us.html">Contact us</a>
-       </div>
-       <div class="copyright">
-       <p>© copyright @ 2025 by SOMTO | all rights reserved!</p>
-       </div>
-       </footer>
+            <h3>Contact</h3>
+            <p><strong>Address: </strong>Pleasant view estate</p>
+            <p><strong>Phone: </strong>(+234) 80-2276-7228 & (+234) 70-4647-4965</p>
+            <p><strong>Hours: </strong>8:00 - 18:30</p>
+            <div class="follow">
+                <h3>Follow us</h3>
+                <div class="icon">
+                    <a href="https://www.facebook.com/share/1AwpdstAph/?mibextid=wwXIfr" target="_blank"
+                        rel="noopener noreferrer">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://x.com/propreserveng?s=11" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/liamsphere_propreserveng?igsh=MTdnZW5jYWdkZXBpbA%3D%3D&utm_source=qr"
+                        target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://pin.it/70dbedhiS" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-pinterest-p"></i>
+                    </a>
+                    <a href="https://youtube.com/@liamspherepropreserveng?si=3K05Xx9BHN6qgpI6" target="_blank"
+                        rel="noopener noreferrer">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://wa.me/2347046474965?text=Hello%20I%20am%20interested%20in%20your%20services"
+                        target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h3>About</h3>
+            <a href="About-us.html">About us</a>
+            <a href="Privacy-Policy.html">Privacy policy</a>
+            <a href="T&C.html">Terms & Conditions</a>
+            <a href="Contact-us.html">Contact us</a>
+        </div>
+        <div class="copyright">
+            <p>© copyright @ 2025 by SOMTO | all rights reserved!</p>
+        </div>
+    </footer>
 
     <script src="Home.js"></script>
 </body>
+
 </html>
