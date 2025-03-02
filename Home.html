@@ -1,0 +1,1942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIAMSPHERE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <meta content="LiamSphere offers reliable and efficient property preservation and management services." name="description">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,regular,700|Roboto:300,regular,500,700" rel="stylesheet">
+    <script defer src="scripts.js"></script>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <link rel="stylesheet" href="Home.css">
+    <style>
+        /* Base styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Header and Navigation */
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.logo {
+    height: 60px;
+    width: 60px;
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    justify-content: center;
+}
+
+#navbar li {
+    list-style: none;
+    padding: 0 15px;
+    position: relative;
+}
+
+#navbar li a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: 0.3s ease;
+}
+
+#navbar li a:hover,
+#navbar li a.active {
+    color: #FFD700;
+}
+
+#navbar li a.active::after, 
+#navbar li a:hover::after {
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: #FFD700;
+    position: absolute;
+    bottom: -4px;
+    left: 15px;
+}
+
+#mobile {
+    display: none;
+}
+
+#close {
+    display: none;
+}
+
+/* Slideshow Section */
+#slideshow {
+    margin-top: 5px;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.slideshow-container {
+    position: relative;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.mySlides {
+    display: none;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.mySlides img {
+    width: 100%;
+    height: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.text, .text1 {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 12px;
+    border-radius: 5px;
+    width: 85%;
+    text-align: center;
+    font-size: 14px;
+}
+
+.text h5, .text h3, .text1 strong {
+    color: #ffd700;
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.text h3 {
+    font-size: 14px;
+}
+
+/* Services Section */
+#slide {
+    padding: 20px;
+}
+
+#slide .title {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 10px;
+}
+
+.service-card {
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.service-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 15px;
+}
+
+.service-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.service-description {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* What to Expect Section */
+#expect {
+    padding: 20px 10px;
+}
+
+#expect h1 {
+    font-size: 22px;
+    line-height: 1.3;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.carousel {
+    width: 95%;
+    margin: 20px auto;
+}
+
+.card {
+    padding: 20px;
+}
+
+.icon {
+    font-size: 30px;
+}
+
+.nav-btn {
+    font-size: 20px;
+}
+
+/* Newsletter Section */
+#newsletter {
+    padding: 20px 10px;
+}
+
+.container {
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.newstext h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.newstext p {
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.form {
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form input {
+    height: 40px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.button1 {
+    height: 40px;
+    width: 100%;
+}
+
+/* Footer Section */
+footer {
+    padding: 20px 10px;
+    background-color: #f8f8f8;
+}
+
+
+footer .col{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+margin-bottom: 20px;
+}
+
+
+footer h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+footer p, footer a {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+footer .follow {
+    margin-top: 15px;
+    color: black;
+}
+
+footer .follow i {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+footer .copyright {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+footer a:hover,
+footer a.active {
+    color: #FFD700;
+}
+
+footer a.active::after, 
+footer a:hover::after {
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: #FFD700;
+    position: absolute;
+    bottom: -4px;
+    left: 15px;
+}
+
+footer .follow i:hover,
+footer a:hover{
+color: gold;
+}
+
+
+footer{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+
+footer .col{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+margin-bottom: 20px;
+}
+
+footer .logo{
+margin-bottom: 30px;
+}
+
+footer h3{
+font-size: 14px;
+padding-bottom: 20px;
+}
+
+footer p{
+font-size: 13px;
+margin: 0 0 8px 0;
+}
+
+footer a{
+font-size: 13px;
+text-decoration: none;
+color: #222;
+margin-bottom: 10px;
+}
+
+footer .follow{
+margin-top: 20px;
+}
+
+footer .follow i{
+color: black;
+padding-right: 4px;
+cursor: pointer;
+}
+
+
+/* Mobile Navigation Adjustments */
+@media (max-width: 420px) {
+    #navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        height: 100vh;
+        width: 250px;
+        background-color: white;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+        padding: 80px 0 0 10px;
+        transition: 0.3s;
+        z-index: 1000;
+    }
+
+    #slide .title {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+    #navbar.active {
+        right: 0;
+    }
+
+    #navbar li {
+        margin-bottom: 20px;
+    }
+
+    #mobile {
+        display: flex;
+        align-items: center;
+    }
+
+    #mobile i {
+        color: #1a1a1a;
+        font-size: 24px;
+        padding-left: 20px;
+    }
+
+    #close {
+        display: block;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        color: #222;
+        font-size: 24px;
+    }
+    
+    #reviews {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    /* Container adjustments */
+    .container {
+        flex-direction: column;
+    }
+
+    #newsletterForm, .email{
+        align-items: center;
+    }
+    
+    .newstext, .form {
+        width: 100%;
+        text-align: center;
+    }
+    footer {
+    padding: 10px 10px;
+    background-color: #f8f8f8;
+}
+
+
+footer .col{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+margin-bottom: 20px;
+}
+
+
+footer h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+footer p, footer a {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+footer .follow {
+    margin-top: 15px;
+}
+
+footer .follow i {
+    font-size: 18px;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+footer .copyright {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+}
+/* Reviews Section */
+#reviews {
+    padding: 40px 5%;
+    background: #f8f9fa;
+}
+
+.reviews-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 5px;
+    margin-top: 30px;
+}
+
+.review-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.review-content {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #555;
+    /* Ensure text doesn't overflow */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.review-content p {
+    margin-bottom: 10px;
+}
+
+/* Media Queries for different screen sizes */
+@media screen and (max-width: 799px) {
+    .reviews-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+    }
+    
+    .review-card {
+        padding: 20px;
+    }
+
+    #slide .title {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#navbar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* Adjust padding as needed */
+  padding: 0;
+  background-color: white;
+}
+
+#nav-top {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+#close {
+  position: relative;
+  top: 0;
+  right: 0;
+  font-size: 24px;
+  text-decoration: none;
+  color: #333;
+}
+
+#navbar li {
+  list-style: none;
+  margin: 10px 0;
+}
+
+#navbar li a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #222;
+  transition: 0.3s ease;
+  padding: 10px 20px;
+  display: block;
+}
+
+#navbar li a:hover,
+#navbar li a.active {
+  color: gold;
+}
+
+/* Mobile navigation styles */
+#mobile {
+  display: none;
+  cursor: pointer;
+}
+
+#navbar {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Hide off-screen initially */
+    height: 100%;
+    width: 250px;
+    background-color: white;
+    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    transition: 0.3s ease;
+    z-index: 1000;
+  }
+  
+  #navbar.active {
+    right: 0; /* Show when active */
+  }
+  
+  #mobile {
+    display: block;
+  }
+  
+  #bar {
+    font-size: 24px;
+  }
+}
+
+/* For Mobile Phones */
+@media screen and (max-width: 477px) {
+    #reviews {
+        padding: 30px 3%;
+    }
+    
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .review-card {
+        padding: 15px;
+    }
+    
+    .reviewer-img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .reviewer-name {
+        font-size: 14px;
+    }
+    
+    .review-stars {
+        font-size: 12px;
+    }
+    
+    .review-content {
+        font-size: 13px;
+        line-height: 1.4;
+        max-height: none; /* Remove any height restrictions */
+    }
+
+    #slide .title {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+}
+
+/* For iPhone X, iPhone 13 mini and similar small devices */
+@media screen and (max-width: 375px) {
+    .review-card {
+        padding: 12px;
+    }
+    
+    .reviewer-img {
+        width: 35px;
+        height: 35px;
+        margin-right: 10px;
+    }
+    
+    .reviewer-name {
+        font-size: 13px;
+    }
+    
+    .review-date {
+        font-size: 11px;
+    }
+    
+    .review-content {
+        font-size: 12px;
+        line-height: 1.3;
+    }
+    
+    /* Additional optimization for text fitting */
+    .review-header {
+        margin-bottom: 10px;
+    }
+    
+    .review-stars {
+        margin-bottom: 8px;
+    }
+
+    #slide .title {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+}
+/* iPhone X and iPhone 13 mini specific adjustments */
+@media only screen 
+and (device-width: 375px) 
+and (device-height: 812px) 
+and (-webkit-device-pixel-ratio: 3),
+only screen 
+and (device-width: 375px) 
+and (device-height: 812px) 
+and (-webkit-device-pixel-ratio: 2) {
+    .logo {
+        height: 50px;
+        width: 50px;
+    }
+    
+    .text, .text1 {
+        bottom: 5%;
+        width: 90%;
+        padding: 8px;
+        font-size: 12px;
+    }
+    
+    .text h5 {
+        font-size: 14px;
+    }
+    
+    .text h3 {
+        font-size: 12px;
+    }
+    
+    #slide .title {
+        font-size: 20px;
+    }
+    
+    .service-card {
+        padding: 15px;
+    }
+
+    #newsletterForm, .email{
+        align-items: center;
+    }
+
+    #slide .title {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+}
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <section id="header">
+        <a href="Home.html"><img src="Liamsphere logo 2.jpeg" class="logo" alt="" height="80px" width="80px"></a>
+        <div>
+          <ul id="navbar" style="background-color: white;">
+            <div id="nav-top">
+              <a href="#" id="close"><i class="far fa-times"></i></a>
+            </div>
+            <li><a id="nav-home" class="active" href="Home.html">HOME</a></li>
+            <li><a id="nav-services" href="Our-services.html">OUR SERVICES</a></li>
+            <li><a id="nav-about" href="About-us.html">ABOUT US</a></li>
+            <li><a id="nav-contact" href="Contact-us.html">CONTACT US</a></li>
+            <li><a id="nav-register" href="Register.html">REGISTER WITH US</a></li>
+          </ul>
+        </div>
+        <div id="mobile">
+          <i id="bar" class="fas fa-outdent"></i>
+        </div>
+      </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const bar = document.getElementById("bar");
+    const close = document.getElementById("close");
+    const nav = document.getElementById("navbar");
+
+    if (bar) {
+        bar.addEventListener("click", (e) => {
+            e.stopPropagation(); // Prevent event bubbling
+            nav.classList.add("active");
+        });
+    }
+
+    if (close) {
+        close.addEventListener("click", (e) => {
+            e.stopPropagation(); // Prevent event bubbling
+            nav.classList.remove("active");
+        });
+    }
+
+    // Close navbar when clicking outside
+    document.addEventListener("click", (e) => {
+        if (!nav.contains(e.target) && !bar.contains(e.target)) {
+            nav.classList.remove("active");
+        }
+    });
+});
+    </script>
+        <style>
+            @media(max-width:779px){
+    .section-p1{
+        padding: 40px 40px;
+    }
+#navbar{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    right: -300px;
+    height: 100vh;
+    width: 300px;
+    background-color:#e3e6f3 ;
+    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+    padding: 80px 0 0 10px;
+    transition: 0.3s;
+}
+
+#navbar .active{
+    right: 0px;
+}
+
+#navbar li{
+    margin-bottom: 25px;
+}
+
+#mobile{
+    display: flex;
+    align-items: center;
+}
+
+#mobile i{
+    color: #1a1a1a;
+    font-size: 24px;
+    padding-left: 20px;
+}
+
+#close{
+    display: initial;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: #222;
+    font-size: 24px;
+}
+
+#slide .title h3{
+        font-weight: 15px;
+    }
+
+}
+
+@media(max-width: 477px){
+    #navbar{
+        padding: 10px 30px;
+    }
+
+    #slide .title h3{
+        font-weight: 15px;
+    }
+    
+}
+
+        </style>
+
+    <!-- Slideshow Style -->
+    <style>
+        /* Slideshow Section */
+        #slideshow {
+            height: 100%;
+            width: 100%;
+            margin-top: 10px;
+            max-width: 1400px;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slideshow-container {
+            position: relative;
+            display: flex;
+            height: 100%;
+            margin-top: 10px;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .mySlides {
+            display: none;
+            text-align: center;
+            height: 100%;
+            width: 100%;
+            margin-top: 10px;
+            position: relative;
+        }
+
+        .mySlides img {
+            width: 100%;
+            height: 100%;
+            max-height: 400px;
+            margin-top: 10px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .text, .text1 {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 5px;
+            width: 80%;
+            text-align: center;
+        }
+
+        .text h5, .text h3, .text1 strong {
+            color: #ffd700;
+        }
+
+        /* Slideshow Navigation */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 50%;
+            font-size: 18px;
+        }
+        /* Responsive Adjustments */
+        @media screen and (max-width: 768px) {
+            .text, .text1 {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+ <!--Put a video here-->
+
+ <style>
+    @media(max-width:779px){
+.section-p1{
+padding: 40px 40px;
+}
+#navbar{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: flex-start;
+position: fixed;
+top: 0;
+right: -300px;
+height: 100vh;
+width: 300px;
+background-color:#e3e6f3 ;
+box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+padding: 80px 0 0 10px;
+transition: 0.3s;
+}
+
+#navbar .active{
+right: 0px;
+}
+
+#navbar li{
+margin-bottom: 25px;
+}
+
+#mobile{
+display: flex;
+align-items: center;
+}
+
+#mobile i{
+color: #1a1a1a;
+font-size: 24px;
+padding-left: 20px;
+}
+
+#close{
+display: initial;
+position: absolute;
+top: 30px;
+left: 30px;
+color: #222;
+font-size: 24px;
+}
+
+#slide .title h3{
+font-weight: 15px;
+}
+
+}
+
+@media(max-width: 477px){
+#navbar{
+padding: 10px 30px;
+}
+
+#slide .title h3{
+font-weight: 15px;
+}
+
+}
+
+</style>
+
+<!-- Video Section -->
+<section id="video-section">
+<div class="video-container">
+    <video autoplay loop playsinline id="hero-video" >
+        <source src="ScreenRecording_03-02-2025 18-50-49_1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="video-overlay" >
+        <h2 style="color: white;">LIAMSPHERE ProPreserveNG</h2>
+        <p style="color: gold;">Professional Property Preservation, Maintenance & Interior decoration Services.</p>
+    </div>
+</div>
+</section>
+
+<style>
+/* Video Section Styles */
+#video-section {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.video-container {
+    width: 100%;
+    position: relative;
+}
+
+#hero-video {
+    width: 100%;
+    height: 800px;
+    display: block;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px;
+}
+
+.video-overlay h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.video-overlay p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+
+/* Responsive Video Adjustments */
+@media screen and (max-width: 768px) {
+    #hero-video {
+        height: 70vh;
+    }
+    
+    .video-overlay h2 {
+        font-size: 1.8rem;
+    }
+    
+    .video-overlay p {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #hero-video {
+        height: 50vh;
+    }
+    
+    .video-overlay h2 {
+        font-size: 1.5rem;
+    }
+    
+    .video-overlay p {
+        font-size: 0.9rem;
+    }
+    
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+</style>
+
+<!-- Slideshow Section -->
+
+        <!-- Services Section -->
+        <section id="slide">
+            <h3 class="title" style="color: black; font:bold;">Your LIAMSPHERE ProPreserveNG Service Options</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 4h16v16H4zM8 8h8m-8 4h8m-8 4h8" stroke="#FFD700" fill="none"/>
+                        </svg>
+                    </div>
+                    <h2 class="service-title">Regular Maintenance</h2>
+                    <p class="service-description">For clients who need ongoing property upkeep, we offer scheduled services such as lawn care, routine inspections, and general maintenance on a weekly, bi-weekly, or monthly basis to ensure properties remain in top condition.</p>
+                </div>
+    
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M3 3h18v18H3zM12 8v8m-4-4h8" stroke="#FFD700" fill="none"/>
+                        </svg>
+                    </div>
+                    <h2 class="service-title">On-Demand Services</h2>
+                    <p class="service-description">For clients who require one-time or occasional property preservation services, such as debris removal, pest control, or emergency repairs, we provide flexible, non-recurring solutions based on immediate needs.</p>
+                </div>
+    
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2v20M2 12h20" stroke="#FFD700" fill="none"/>
+                        </svg>
+                    </div>
+                    <h2 class="service-title">Full Property Restoration</h2>
+                    <p class="service-description">For properties that have been vacant for long periods or require extensive work, we offer complete restoration services, including deep cleaning, structural repairs, and landscaping, to bring the property back to market-ready condition.</p>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            /* Services Grid with Zoom Effect */
+            .services-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+                padding: 20px;
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+            
+            .service-card {
+                background: white;
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                transition: all 0.4s ease;
+                overflow: hidden;
+                position: relative;
+                cursor: pointer;
+            }
+            
+            .service-card:hover {
+                transform: scale(1.05);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            }
+            
+            .service-card:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(255, 215, 0, 0.05);
+                transform: scale(0);
+                transform-origin: center;
+                transition: transform 0.5s ease;
+                border-radius: 10px;
+                z-index: 0;
+            }
+            
+            .service-card:hover:before {
+                transform: scale(1);
+            }
+            
+            .service-icon, .service-title, .service-description {
+                position: relative;
+                z-index: 1;
+            }
+            
+            .service-icon {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 20px;
+            }
+            
+            .service-title {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+                color: #333;
+                font-weight: 600;
+            }
+            
+            .service-description {
+                color: #666;
+                line-height: 1.6;
+            }
+            
+            @media (max-width: 768px) {
+                .services-grid {
+                    grid-template-columns: 1fr;
+                    padding: 15px;
+                }
+                
+                .service-card {
+                    padding: 20px;
+                }
+                
+                .service-title {
+                    font-size: 1.3rem;
+                }
+            }
+        </style>
+<!--reviews-->
+<section id="reviews">
+    <div id="reviews-container"></div>
+    
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const FullScreenReviewsCarousel = () => {
+            const [currentSlide, setCurrentSlide] = useState(0);
+            
+            const reviews = [
+                { name: "Adeola Elvis Snr", job:"Real Estate Agent", text: "I own multiple rental properties, and keeping them in good condition was a challenge until I partnered with LIAMSPHERE ProPreserveNG. Their regular maintenance services keep my properties clean, secure, and ready for tenants. Their attention to detail is outstanding!", verified: true },
+                { name: "Somadina Okoronkwo Mattew", job:"Property Investor", text: "I own multiple rental properties, and keeping them in good condition was a challenge until I partnered with LIAMSPHERE ProPreserveNG. Their regular maintenance services keep my properties clean, secure, and ready for tenants. Their attention to detail is outstanding!", verified: true },
+                { name: "Ane Joy Ujunwa", job:"Bank Asset Manager", text: "Managing foreclosed properties requires efficiency, and LIAMSPHERE ProPreserveNG delivers exactly that. They handled debris removal, repairs, and lawn care for several REO properties I manage. Their team is fast, reliable, and easy to work with.", verified: true },
+                { name: "Tobias Segun", job:"Landlord", text: "I had a vacant property that needed urgent cleaning, pest control, and security upgrades. LIAMSPHERE ProPreserveNG handled everything seamlessly. Their service is professional, and they genuinely care about keeping properties well-maintained.", verified: true },
+                { name: "Ahmed Ibrahim", job:"Real Estate Developer", text: "What sets LIAMSPHERE ProPreserveNG apart is their dedication to customer satisfaction. Their team goes above and beyond to ensure properties are preserved to the highest standard. I've used their services multiple times, and they never disappoint!", verified: true }
+            ];
+
+            useEffect(() => {
+                const timer = setInterval(() => {
+                    setCurrentSlide((prev) => (prev + 1) % reviews.length);
+                }, 5000);
+                return () => clearInterval(timer);
+            }, []);
+
+            return (
+                <div className="reviews-fullscreen">
+                    <h1 className="reviews-title">
+                        Trusted by Property Owners & Real Estate Professionals
+                    </h1>
+                    <div className="reviews-carousel">
+                        {reviews.map((review, index) => (
+                            <div
+                                key={index}
+                                className={`review-slide ${index === currentSlide ? 'active' : ''}`}
+                            >
+                                <div className="review-card">
+                                    <div className="reviewer-header">
+                                        <h3 className="reviewer-name">{review.name}</h3>
+                                        <div className="reviewer-details">
+                                            {review.verified && (
+                                                <span className="verified-badge">
+                                                    Verified
+                                                </span>
+                                            )}
+                                            <p className="reviewer-job">{review.job}</p>
+                                        </div>
+                                    </div>
+                                    <p className="review-text">{review.text}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                    <div className="review-indicators">
+                        {reviews.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setCurrentSlide(index)}
+                                className={`indicator ${index === currentSlide ? 'active' : ''}`}
+                                aria-label={`Go to slide ${index + 1}`}
+                            />
+                        ))}
+                    </div>
+                </div>
+            );
+        };
+        
+        ReactDOM.render(<FullScreenReviewsCarousel />, document.getElementById("reviews-container"));
+    </script>
+    
+    <style>
+        /* Reviews Section - Full Screen Version */
+        #reviews {
+            width: 100%;
+            position: relative;
+            padding: 0;
+            background: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .reviews-fullscreen {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .reviews-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: black;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .reviews-carousel {
+            position: relative;
+            width: 100%;
+            height: 50vh;
+            min-height: 300px;
+            margin: 0 auto;
+        }
+        
+        .review-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+        
+        .review-slide.active {
+            opacity: 1;
+            z-index: 10;
+            pointer-events: all;
+        }
+        
+        .review-card {
+            width: 90%;
+            max-width: 700px;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        
+        .reviewer-header {
+            margin-bottom: 20px;
+        }
+        
+        .reviewer-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: black;
+            margin-bottom: 5px;
+        }
+        
+        .reviewer-details {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .verified-badge {
+            background: rgba(37, 99, 235, 0.1);
+            color: rgb(37, 99, 235);
+            font-size: 0.75rem;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        
+        .reviewer-job {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        .review-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #444;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .review-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .indicator.active {
+            background: black;
+            transform: scale(1.2);
+        }
+        
+        /* Media Queries */
+        @media screen and (max-width: 768px) {
+            .reviews-title {
+                font-size: 1.8rem;
+                margin-bottom: 30px;
+            }
+            
+            .review-card {
+                padding: 25px;
+                width: 95%;
+            }
+            
+            .reviewer-name {
+                font-size: 1.2rem;
+            }
+            
+            .review-text {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+        }
+        
+        /* For iPhone X, iPhone 13 mini and similar devices */
+        @media screen and (max-width: 375px) {
+            .reviews-title {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+            
+            .review-card {
+                padding: 20px;
+                width: 100%;
+            }
+            
+            .reviewer-name {
+                font-size: 1.1rem;
+            }
+            
+            .reviewer-job {
+                font-size: 0.9rem;
+            }
+            
+            .review-text {
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+            
+            .verified-badge {
+                font-size: 0.7rem;
+                padding: 3px 8px;
+            }
+            
+            .reviews-carousel {
+                height: auto;
+                min-height: 250px;
+            }
+            
+            .indicator {
+                width: 10px;
+                height: 10px;
+            }
+        }
+    </style>
+</section>
+
+<!-- Slideshow Section -->
+<section id="slideshow">
+    <div class="slideshow-container">
+        <div class="mySlides">
+            <img src="liamsphere house maintaince.jpeg" alt="Slide 1">
+            <div class="text">
+                <span>Welcome to</span><br>
+                <h5>LIAMSPHERE PROPERTY PRESERVATION & MANAGEMENT</h5><br>
+                <span>Your Reliable Home & Commercial Property Preservation</span><br>
+                <h3>(+234) 80-2276-7228 & (+234) 70-4647-4965</h3>
+            </div>
+        </div>
+        <div class="mySlides">
+            <img src="liamsphere cleaning.jpeg" alt="Slide 2">
+            <div class="text1">
+                <span>The</span><strong> BEST </strong><span>At Preserving Properties With Unmatched Quality & Unbeatable Value-Excelence Every Time</span>
+            </div>
+        </div>
+        <div class="mySlides">
+            <img src="liamsphere house repair.jpeg" alt="Slide 3">
+            <div class="text">
+                <h3>CLEANLINESS IS NEXT TO GODLINESS</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="expect">
+    <style>
+        .carousel {
+            position: relative;
+            width: 80%;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .card {
+            min-width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .icon {
+            font-size: 40px;
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+        h3 {
+            color: #333;
+        }
+        h1 {
+    font-size: 25px;
+    line-height: 64px;
+    color: #222;
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        .dots {
+            margin-top: 15px;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: gray;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .dot.active {
+            background: black;
+        }
+    </style>
+    <center><h1 style="color: black; font-size: 30px; font:bold; padding: 10px; margin: 10px;">
+        What you can expect from Liamsphere</h1></center>
+    <div class="carousel">
+        <button class="nav-btn prev">&#10094;</button>
+        <div class="carousel-track">
+            <div class="card">
+                <center><i class="fas fa-gem icon"></i></center>
+                <center><h3>Quality</h3></center>
+                <center><p>We invest in delivering high-quality,
+                     premium services that exceed customer expectations.</p></center>
+            </div>
+            <div class="card">
+                <center><i class="fas fa-hands-helping icon"></i></center>
+                <center><h3>Empower</h3></center>
+                <center><p>We ensure fair wages and growth opportunities
+                     for employees.</p></center>
+            </div>
+            <div class="card">
+                <center><i class="fas fa-mountain icon"></i></center>
+                <center><h3>Ambition</h3></center>
+                <center><p>We strive to improve continuously, 
+                    providing the best customer experience.</p></center>
+            </div>
+            <div class="card">
+                <center><i class="fas fa-user-shield icon"></i></center>
+                <center><h3>Transparency</h3></center>
+                <center><p>We maintain open, 
+                    honest communication with customers and employees.</p></center>
+            </div>
+            <div class="card">
+                <center><i class="fas fa-users icon"></i></center>
+                <center><h3>Community</h3></center>
+                <center><p>We build strong relationships with our community, 
+                    fostering trust and cooperation.</p></center>
+            </div>
+        </div>
+        <button class="nav-btn next" style="color: black;">&#10095;</button>
+    <center><div class="dots"></div></center>
+    </div>
+
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const cards = document.querySelectorAll('.card');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        const dotsContainer = document.querySelector('.dots');
+
+        let index = 0;
+        const totalSlides = cards.length;
+
+        function updateCarousel() {
+            track.style.transform = `translateX(-${index * 100}%)`;
+            document.querySelectorAll('.dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        function createDots() {
+            for (let i = 0; i < 5; i++) {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    index = i;
+                    updateCarousel();
+                });
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        prevBtn.addEventListener('click', () => {
+            index = (index - 1 + 5) % 5;
+            updateCarousel();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            index = (index + 1) % 5;
+            updateCarousel();
+        });
+
+        createDots();
+    </script>
+</section>
+    
+        <!-- Newsletter Section -->
+        <section id="newsletter" class="section-p1">
+            <div class="container">
+                <div class="newstext">
+                    <h3>Sign Up For Newsletters</h3>
+                    <p>Get E-mail updates about our new services <span>special offers.</span></p>
+                </div>
+        
+                <form id="newsletterForm" class="form">
+                    <input type="email" id="email" placeholder="Your email address" style="min-width: 150px;" required>
+                    <button type="submit" class="button1" style="min-width: 100px;">Sign Up</button>
+                </form>
+        
+                <p id="formStatus"></p>
+            </div>
+        
+            <script type="module">
+                // Import Firebase SDKs
+                import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
+                import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js';
+                import { getDatabase, ref, set } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js';
+        
+                // Firebase Configuration
+                const firebaseConfig = {
+                    apiKey: "AIzaSyB155iTCgJjUO0plgpLZdLMdKKuhhitFH0",
+                    authDomain: "liamsphere-propreserveng.firebaseapp.com",
+                    databaseURL: "https://liamsphere-propreserveng-default-rtdb.firebaseio.com",
+                    projectId: "liamsphere-propreserveng",
+                    storageBucket: "liamsphere-propreserveng.appspot.com",
+                    messagingSenderId: "99918060866",
+                    appId: "1:99918060866:web:b6a4321e82570b1a1dfcdb",
+                    measurementId: "G-4KCEC0TH8Q"
+                };
+        
+                // Initialize Firebase
+                const app = initializeApp(firebaseConfig);
+                const db = getFirestore(app);
+                const rtdb = getDatabase(app);
+        
+                // Form handling
+                const form = document.getElementById('newsletterForm');
+                const formStatus = document.getElementById('formStatus');
+        
+                // Function to Show Status Messages
+                const showStatus = (message, isError = false) => {
+                    formStatus.textContent = message;
+                    formStatus.className = isError ? 'error' : 'success';
+                    formStatus.style.display = 'block';
+                    setTimeout(() => {
+                        formStatus.style.display = 'none';
+                    }, 5000);
+                };
+        
+                // Form Submission Event Listener
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+        
+                    try {
+                        if (!db || !rtdb) {
+                            throw new Error("Firebase not initialized properly");
+                        }
+        
+                        const formData = {
+                            email: document.getElementById('email').value,
+                            timestamp: new Date().toISOString()
+                        };
+        
+                        console.log('Form Data:', formData); // Add this to debug
+        
+                        // Try Firestore first
+                        try {
+                            await addDoc(collection(db, 'newsletterSubscriptions'), formData);
+                            console.log("Saved to Firestore successfully");
+                        } catch (firestoreError) {
+                            console.error("Firestore save failed:", firestoreError);
+                        }
+        
+                        // Try Realtime Database
+                        try {
+                            const userId = Date.now().toString();
+                            await set(ref(rtdb, 'newsletterSubscriptions/' + userId), formData);
+                            console.log("Saved to Realtime Database successfully");
+                            showStatus('Thank you for subscribing!');
+                        } catch (rtdbError) {
+                            console.error("RTDB save failed:", rtdbError);
+                        }
+        
+                        //showStatus('Message sent successfully!');
+                        form.reset();
+                    } catch (error) {
+                        console.error('Error details:', error);
+                        showStatus('There was an error sending your message. Please try again.', true);
+                    }
+                });
+            </script>
+        
+        <style>
+            /* Newsletter Section Styling */
+            .container {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                align-items: center;
+                background-image: url(); /* Add background image if needed */
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: #041e42;
+                padding: 20px;
+                border-radius: 10px;
+            }
+        
+            .newstext h3 {
+                font-size: 22px;
+                font-weight: 700;
+                color: #fff;
+            }
+        
+            .newstext p {
+                font-size: 14px;
+                font-weight: 600;
+                color: #818ea0;
+            }
+        
+            .newstext p span {
+                color: #ffbd27;
+            }
+        
+            .form {
+                display: flex;
+                width: 40%;
+            }
+        
+            .form input {
+                height: 3.125rem;
+                padding: 1.25rem;
+                font-size: 14px;
+                width: 100%;
+                border: 1px solid transparent;
+                outline: none;
+                border-radius: 5px;
+            }
+        
+            .button1 {
+                background-color: #235841;
+                color: #fff;
+                white-space: nowrap;
+                border: none;
+                padding: 10px 20px;
+                cursor: pointer;
+                border-radius: 5px;
+                font-size: 16px;
+            }
+        
+            .button1:hover {
+                background-color: #1b4633;
+            }
+        </style>
+        
+        </section>
+    
+    
+        <!-- Footer Section -->
+        <footer class="section-p1">
+            <div class="col">
+           <h3 style="font-weight: bold;">Contact</h3>
+           <p><strong>Address: </strong>Pleasant view estate</p>
+           <p><strong>Phone: </strong>(+234) 80-2276-7228 & (+234) 70-4647-4965</p>
+           <p><strong>Hours: </strong>8:00 - 18:30</p>
+           <div class="follow">
+           <h3 style="font-weight: bold;">Follow us</h3>
+           <div class="icon">
+           <a href="https://www.facebook.com/share/1AwpdstAph/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+           <i class="fab fa-facebook-f"></i>
+           </a>
+           <a href="https://x.com/propreserveng?s=11" target="_blank" rel="noopener noreferrer">
+           <i class="fab fa-twitter"></i>
+           </a>
+           <a href="https://www.instagram.com/liamsphere_propreserveng?igsh=MTdnZW5jYWdkZXBpbA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">
+           <i class="fab fa-instagram"></i>
+           </a>
+           <a href="https://pin.it/70dbedhiS" target="_blank" rel="noopener noreferrer">
+           <i class="fab fa-pinterest-p"></i>
+           </a>
+           <a href="https://youtube.com/@liamspherepropreserveng?si=3K05Xx9BHN6qgpI6" target="_blank" rel="noopener noreferrer">
+           <i class="fab fa-youtube"></i>
+           </a>
+           <a href="https://wa.me/2347046474965?text=Hello%20I%20am%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer">
+           <i class="fab fa-whatsapp"></i>
+           </a>
+           </div>
+           </div>
+           </div>
+           <div class="col">
+           <h3 style="font-weight: bold;">About</h3>
+           <a href="About-us.html">About us</a>
+           <a href="Privacy-Policy.html">Privacy policy</a>
+           <a href="T&C.html">Terms & Conditions</a>
+           <a href="Contact-us.html">Contact us</a>
+           </div>
+           <div class="copyright">
+           <p>© copyright @ 2025 by SOMTO | all rights reserved!</p>
+           </div>
+           </footer>
+    
+        <script>
+            // Slideshow functionality
+            let slideIndex = 0;
+            showSlides();
+    
+            function showSlides() {
+                let slides = document.getElementsByClassName("mySlides");
+                
+                for (let i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                
+                slideIndex++;
+                if (slideIndex > slides.length) {
+                    slideIndex = 1;
+                }
+                
+                slides[slideIndex - 1].style.display = "block";
+                setTimeout(showSlides, 5000); // Change slide every 5 seconds
+            }
+    
+            // Handle option button selection
+            document.querySelectorAll('.option-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    // For "How often?" and "For how long?" sections, deselect other buttons
+                    if (button.parentElement.parentElement.querySelector('.option-label').textContent.includes('How')) {
+                        button.parentElement.querySelectorAll('.option-button').forEach(btn => {
+                            btn.classList.remove('selected');
+                        });
+                    }
+                    button.classList.toggle('selected');
+                });
+            });
+    
+            // Add smooth scrolling to nav links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        </script>
+        
+    </body>
+    </html>

@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, inital-scale=1.8">
+    <title> LIAMSPHERE  </title>
+    <link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+          <style>
+            /* Base styles */
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: white;
+        font-family: 'Nunito', sans-serif;
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    /* Header and Navigation */
+    #header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background-color: white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 999;
+    }
+    
+    .logo {
+        height: 60px;
+        width: 60px;
+    }
+    
+    #navbar {
+        display: flex;
+        align-items: center;
+        background-color: white;
+        justify-content: center;
+    }
+    
+    #navbar li {
+        list-style: none;
+        padding: 0 15px;
+        position: relative;
+    }
+    
+    #navbar li a {
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        color: #1a1a1a;
+        transition: 0.3s ease;
+    }
+    
+    #navbar li a:hover,
+    #navbar li a.active {
+        color: #FFD700;
+    }
+    
+    #navbar li a.active::after, 
+    #navbar li a:hover::after {
+        content: "";
+        width: 30%;
+        height: 2px;
+        background: #FFD700;
+        position: absolute;
+        bottom: -4px;
+        left: 15px;
+    }
+    
+    #mobile {
+        display: none;
+    }
+    
+    #close {
+        display: none;
+    }
+    
+    /* Slideshow Section */
+    
+    .nav-btn {
+        font-size: 20px;
+    }
+    
+    /* Newsletter Section */
+    #newsletter {
+        padding: 20px 10px;
+    }
+    
+    .container {
+        padding: 15px;
+        border-radius: 8px;
+    }
+    
+    .newstext h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .newstext p {
+        font-size: 12px;
+        margin-bottom: 15px;
+    }
+    
+    .form {
+        width: 100%;
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .form input {
+        height: 40px;
+        padding: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .button1 {
+        height: 40px;
+        width: 100%;
+    }
+    
+    /* Footer Section */
+    footer {
+        padding: 20px 10px;
+        background-color: #f8f8f8;
+    }
+    
+    
+    footer .col{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    }
+    
+    
+    footer h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    
+    footer p, footer a {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+    
+    footer .follow {
+        margin-top: 15px;
+    }
+    
+    footer .follow i {
+        font-size: 18px;
+        margin-right: 10px;
+    }
+    
+    footer .copyright {
+        margin-top: 20px;
+        font-size: 14px;
+    }
+    
+    /* Mobile Navigation Adjustments */
+    @media (max-width: 420px) {
+        #navbar {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            position: fixed;
+            top: 0;
+            right: -300px;
+            height: 100vh;
+            width: 250px;
+            background-color: white;
+            box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+            padding: 80px 0 0 10px;
+            transition: 0.3s;
+            z-index: 1000;
+        }
+    
+        #navbar.active {
+            right: 0;
+        }
+    
+        #navbar li {
+            margin-bottom: 20px;
+        }
+    
+        #mobile {
+            display: flex;
+            align-items: center;
+        }
+    
+        #mobile i {
+            color: #1a1a1a;
+            font-size: 24px;
+            padding-left: 20px;
+        }
+    
+        #close {
+            display: block;
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            color: #222;
+            font-size: 24px;
+        }
+        
+        /* Container adjustments */
+        .container {
+            flex-direction: column;
+        }
+    
+        #newsletterForm, .email{
+            align-items: center;
+        }
+        
+        .newstext, .form {
+            width: 100%;
+            text-align: center;
+        }
+        footer {
+        padding: 10px 10px;
+        background-color: #f8f8f8;
+    }
+    
+    
+    footer .col{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    }
+    
+    
+    footer h3 {
+        font-size: 7px;
+        margin-bottom: 5px;
+    }
+    
+    footer p, footer a {
+        font-size: 5px;
+        margin-bottom: 8px;
+    }
+    
+    footer .follow {
+        margin-top: 15px;
+    }
+    
+    footer .follow i {
+        font-size: 8px;
+        margin-top: 5px;
+        margin-right: 10px;
+    }
+    
+    footer .copyright {
+        margin-top: 20px;
+        font-size: 14px;
+    }
+    
+    }
+    
+    /* Media Queries for different screen sizes */
+    @media screen and (max-width: 799px) {
+    #navbar {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      /* Adjust padding as needed */
+      padding: 0;
+      background-color: white;
+    }
+    
+    #nav-top {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px;
+    }
+    
+    #close {
+      position: relative;
+      top: 0;
+      right: 0;
+      font-size: 24px;
+      text-decoration: none;
+      color: #333;
+    }
+    
+    #navbar li {
+      list-style: none;
+      margin: 10px 0;
+    }
+    
+    #navbar li a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #222;
+      transition: 0.3s ease;
+      padding: 10px 20px;
+      display: block;
+    }
+    
+    #navbar li a:hover,
+    #navbar li a.active {
+      color: gold;
+    }
+    
+    /* Mobile navigation styles */
+    #mobile {
+      display: none;
+      cursor: pointer;
+    }
+    
+    #navbar {
+        position: fixed;
+        top: 0;
+        right: -300px; /* Hide off-screen initially */
+        height: 100%;
+        width: 250px;
+        background-color: white;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+        padding: 0;
+        transition: 0.3s ease;
+        z-index: 1000;
+      }
+      
+      #navbar.active {
+        right: 0; /* Show when active */
+      }
+      
+      #mobile {
+        display: block;
+      }
+      
+      #bar {
+        font-size: 24px;
+      }
+    }
+    
+    /* For Mobile Phones */
+    @media screen and (max-width: 477px) {
+       
+    
+    }
+    
+    /* For iPhone X, iPhone 13 mini and similar small devices */
+    @media screen and (max-width: 375px) {
+        
+    
+    }
+    /* iPhone X and iPhone 13 mini specific adjustments */
+    @media only screen 
+    and (device-width: 375px) 
+    and (device-height: 812px) 
+    and (-webkit-device-pixel-ratio: 3),
+    only screen 
+    and (device-width: 375px) 
+    and (device-height: 812px) 
+    and (-webkit-device-pixel-ratio: 2) {
+        .logo {
+            height: 50px;
+            width: 50px;
+        }
+        
+        .text, .text1 {
+            bottom: 5%;
+            width: 90%;
+            padding: 8px;
+            font-size: 12px;
+        }
+        
+        .text h5 {
+            font-size: 14px;
+        }
+        
+        .text h3 {
+            font-size: 12px;
+        }
+    
+        #newsletterForm, .email{
+            align-items: center;
+        }
+    
+    }
+        </style>
+    </head>
+    <body>
+        <!-- Header Section -->
+        <section id="header">
+            <a href="Home.html"><img src="Liamsphere logo 2.jpeg" class="logo" alt="" height="80px" width="80px"></a>
+            <div>
+              <ul id="navbar" style="background-color: white;">
+                <div id="nav-top">
+                  <a href="#" id="close"><i class="far fa-times"></i></a>
+                </div>
+                <li><a id="nav-home" href="Home.html">HOME</a></li>
+                <li><a id="nav-services" href="Our-services.html">OUR SERVICES</a></li>
+                <li><a id="nav-about" href="About-us.html">ABOUT US</a></li>
+                <li><a id="nav-contact" href="Contact-us.html">CONTACT US</a></li>
+                <li><a id="nav-register" class="active" href="Register.html">REGISTER WITH US</a></li>
+              </ul>
+            </div>
+            <div id="mobile">
+              <i id="bar" class="fas fa-outdent"></i>
+            </div>
+          </section>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+        const bar = document.getElementById("bar");
+        const close = document.getElementById("close");
+        const nav = document.getElementById("navbar");
+    
+        if (bar) {
+            bar.addEventListener("click", (e) => {
+                e.stopPropagation(); // Prevent event bubbling
+                nav.classList.add("active");
+            });
+        }
+    
+        if (close) {
+            close.addEventListener("click", (e) => {
+                e.stopPropagation(); // Prevent event bubbling
+                nav.classList.remove("active");
+            });
+        }
+    
+        // Close navbar when clicking outside
+        document.addEventListener("click", (e) => {
+            if (!nav.contains(e.target) && !bar.contains(e.target)) {
+                nav.classList.remove("active");
+            }
+        });
+    });
+        </script>
+            <style>
+                @media(max-width:779px){
+        .section-p1{
+            padding: 40px 40px;
+        }
+    #navbar{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        height: 100vh;
+        width: 300px;
+        background-color:#e3e6f3 ;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+        padding: 80px 0 0 10px;
+        transition: 0.3s;
+    }
+    
+    #navbar .active{
+        right: 0px;
+    }
+    
+    #navbar li{
+        margin-bottom: 25px;
+    }
+    
+    #mobile{
+        display: flex;
+        align-items: center;
+    }
+    
+    #mobile i{
+        color: #1a1a1a;
+        font-size: 24px;
+        padding-left: 20px;
+    }
+    
+    #close{
+        display: initial;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        color: #222;
+        font-size: 24px;
+    }
+    }
+    
+    @media(max-width: 477px){
+        #navbar{
+            padding: 10px 30px;
+        }
+        
+    }
+    
+            </style>
+        </section>    
+
+    <section id="FAQ">
+        <style>
+            .FAQ {
+                font-family: 'Arial', sans-serif;
+                background-color: #f7f7f7;
+                margin: 10px;
+                padding: 10px;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+            }
+    
+            .faq-container {
+                background: white;
+                padding: 30px;
+                width: 90%;
+                max-width: 600px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+    
+            h1 {
+                color: black;
+                text-align: center;
+            }
+    
+            .search-box {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+    
+            .search-box input {
+                flex: 1;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+    
+            .search-box button {
+                background-color: #28a745;
+                color: white;
+                border: none;
+                padding: 10px;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+    
+            .faq-category {
+                color: black;
+                font-weight: bold;
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+    
+            .faq-item {
+                border-top: 1px solid #ddd;
+                padding: 10px 0;
+            }
+    
+            .faq-question {
+                background: none;
+                border: none;
+                width: 100%;
+                text-align: left;
+                font-size: 16px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+    
+            .faq-answer {
+                display: none;
+                padding-top: 10px;
+                font-size: 14px;
+                color: #555;
+            }
+    
+            .icon {
+                font-size: 18px;
+                color: black;
+                margin-right: 10px;
+            }
+        </style>
+        <center><div class="faq-container" style="width: 100vw;">
+            <h1 style="color: black; font-size: 35px; font:bold;">FAQs</h1>
+            <h1 style="color: black; font-size: 30px; font:bold;">How can we help?</h1>
+            <div class="search-box">
+                <input type="text" id="faqSearch" placeholder="Search FAQs">
+                <button><i class="fa fa-search"></i></button>
+            </div>
+    
+            <div class="faq-section">    
+                <div class="faq-item">
+                    <h2 class="faq-category" style="color: black; font-size: 25px; font:bold;">Home</h2>
+                    <button class="faq-question">
+                        <span class="icon">+</span> What is LIAMSPHERE Property Preservation and Management?
+                    </button>
+                    <div class="faq-answer">
+                        <p> LIAMSPHERE is a professional property preservation company specializing in residential and commercial property maintenance, cleaning, and repairs. </p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> What services do you offer?
+                    </button>
+                    <div class="faq-answer">
+                        <p> We offer property maintenance, cleaning, repairs, foreclosure cleanups, janitorial services, and general property management.   </p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span>  Where are your services available?
+                    </button>
+                    <div class="faq-answer">
+                        <p> We operate in multiple cities across Nigeria. Contact us to check service availability in your area.  </p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> How can I request a service?
+                    </button>
+                    <div class="faq-answer">
+                        <p> You can book a service through our website, via phone, or by visiting our office.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> What makes your company different from others?
+                    </button>
+                    <div class="faq-answer">
+                        <p> Our reliability, attention to detail, trained professionals, and commitment to customer satisfaction set us apart.  </p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> How long have you been in business?
+                    </button>
+                    <div class="faq-answer">
+                        <p> We have been providing property preservation services for several years, with a strong reputation for excellence.  </p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> Do you have customer reviews or testimonials?
+                    </button>
+                    <div class="faq-answer">
+                        <p> Yes! Visit <a href="Home.html"> our website </a> to see customer feedback and success stories.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> What are your operating hours?
+                    </button>
+                    <div class="faq-answer">
+                        <p> We are open Monday to Saturday from 8:00 AM to 6:30 PM.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> How can I contact customer support?
+                    </button>
+                    <div class="faq-answer">
+                        <p> You can reach us via phone at (+234) 80-2276-7228 & (+234) 70-4647-4965 or email us at support@liamsphere.com.  </p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> Do you offer emergency property maintenance services?
+                    </button>
+                    <div class="faq-answer">
+                        <p> Yes, we provide 24/7 emergency repair and maintenance for urgent issues.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h2 class="faq-category" style="color: black; font-size: 25px; font:bold;">General</h2>
+                    <button class="faq-question">
+                        <span class="icon">+</span> How do I make a booking?
+                    </button>
+                    <div class="faq-answer">
+                        <p>You can make a booking through our website or by calling customer service.</p>
+                    </div>
+                </div>
+    
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> What if I don't want to book online?
+                    </button>
+                    <div class="faq-answer">
+                        <p>You can call us at (+234) 80-2276-7228 & (+234) 70-4647-4965 or use the form in <a href="Our-services.html">Our service</a>  page to book.</p>
+                    </div>
+                </div>
+    
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> How much do you pay your cleaners?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our cleaners are paid competitive rates based on industry standards.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> What types of property preservation services do you offer?
+                    </button>
+                    <div class="faq-answer">
+                        <p>We provide **cleaning, maintenance, repairs, landscaping, pest control, and foreclosure cleanup</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> Do you handle foreclosure property cleanups?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we specialize in clearing, cleaning, and securing foreclosed properties.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> Do you provide lawn care and landscaping services?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we offer **grass cutting, weeding, tree trimming, and garden maintenance</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> What cleaning services do you provide?
+                    </button>
+                    <div class="faq-answer">
+                        <p>We offer residential cleaning, commercial janitorial services, deep cleaning, and move-in/move-out cleaning.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> Do you offer emergency repair services?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we provide 24/7 emergency repairs for urgent property issues.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> How do you handle mold removal?
+                    </button>
+                    <div class="faq-answer">
+                        <p>We use safe and effective mold removal techniques to eliminate mold and prevent regrowth.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> Can you assist with plumbing and electrical issues?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we have certified plumbers and electricians to handle all repairs.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> What is included in your maintenance services? 
+                    </button>
+                    <div class="faq-answer">
+                        <p>Regular inspections, minor repairs, HVAC servicing, and exterior maintenance.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> How often should I schedule property maintenance?
+                    </button>
+                    <div class="faq-answer">
+                        <p>We recommend quarterly maintenance to keep your property in excellent condition.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h2 class="faq-category" style="color: black; font-size: 25px; font:bold;"> Pricing & Payments</h2>
+                    <button class="faq-question">
+                        <span class="icon">+</span> How much do your services cost?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Pricing depends on the service type and property size. Contact us for a <a href="Our-services.html">custom quote</a>.</p>
+                    </div>
+                </div>
+    
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> Do you offer customized pricing plans?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we create personalized pricing plans based on customer needs.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> Are there any hidden fees?
+                    </button>
+                    <div class="faq-answer">
+                        <p>No, our pricing is transparent, and there are no hidden fees.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> Do you provide free estimates?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we offer free, no-obligation estimates for all services.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> What payment methods do you accept?
+                    </button>
+                    <div class="faq-answer">
+                        <p>We accept **cash, bank transfers, POS, and online payments</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> Can I set up a payment plan?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we offer flexible payment options for long-term contracts.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> Do you offer discounts for long-term contracts?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we provide discounts for long-term and bulk service contracts.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> Is there a refund policy?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Refunds are available if the service does not meet the agreed-upon standards.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> How do I receive an invoice for services?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Invoices are sent via email or printed upon request.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="icon">+</span> Do you charge extra for emergency services?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Emergency services may incur an additional fee based on urgency.</p>
+                    </div>
+                </div>
+            </div>
+        </div></center>
+    
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const faqItems = document.querySelectorAll(".faq-item");
+    
+                faqItems.forEach(item => {
+                    const question = item.querySelector(".faq-question");
+                    const answer = item.querySelector(".faq-answer");
+                    const icon = item.querySelector(".icon");
+    
+                    question.addEventListener("click", function () {
+                        const isOpen = answer.style.display === "block";
+                        document.querySelectorAll(".faq-answer").forEach(a => a.style.display = "none");
+                        document.querySelectorAll(".icon").forEach(i => i.textContent = "+");
+    
+                        if (!isOpen) {
+                            answer.style.display = "block";
+                            icon.textContent = "−";
+                        }
+                    });
+                });
+    
+                document.getElementById("faqSearch").addEventListener("input", function () {
+                    const searchTerm = this.value.toLowerCase();
+                    document.querySelectorAll(".faq-item").forEach(item => {
+                        const questionText = item.querySelector(".faq-question").textContent.toLowerCase();
+                        item.style.display = questionText.includes(searchTerm) ? "block" : "none";
+                    });
+                });
+            });
+        </script>    
+    </section>
+
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="section-p1">
+        <div class="container">
+            <div class="newstext">
+                <h3>Sign Up For Newsletters</h3>
+                <p>Get E-mail updates about our new services <span>special offers.</span></p>
+            </div>
+    
+            <form id="newsletterForm" class="form">
+                <input type="email" id="email" placeholder="Your email address" required>
+                <button type="submit" class="button1">Sign Up</button>
+            </form>
+    
+            <p id="formStatus"></p>
+        </div>
+    
+        <script type="module">
+            // Import Firebase SDKs
+            import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
+            import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js';
+            import { getDatabase, ref, set } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js';
+    
+            // Firebase Configuration
+            const firebaseConfig = {
+                apiKey: "AIzaSyB155iTCgJjUO0plgpLZdLMdKKuhhitFH0",
+                authDomain: "liamsphere-propreserveng.firebaseapp.com",
+                databaseURL: "https://liamsphere-propreserveng-default-rtdb.firebaseio.com",
+                projectId: "liamsphere-propreserveng",
+                storageBucket: "liamsphere-propreserveng.appspot.com",
+                messagingSenderId: "99918060866",
+                appId: "1:99918060866:web:b6a4321e82570b1a1dfcdb",
+                measurementId: "G-4KCEC0TH8Q"
+            };
+    
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+            const rtdb = getDatabase(app);
+    
+            // Form handling
+            const form = document.getElementById('newsletterForm');
+            const formStatus = document.getElementById('formStatus');
+    
+            // Function to Show Status Messages
+            const showStatus = (message, isError = false) => {
+                formStatus.textContent = message;
+                formStatus.className = isError ? 'error' : 'success';
+                formStatus.style.display = 'block';
+                setTimeout(() => {
+                    formStatus.style.display = 'none';
+                }, 5000);
+            };
+    
+            // Form Submission Event Listener
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+    
+                try {
+                    if (!db || !rtdb) {
+                        throw new Error("Firebase not initialized properly");
+                    }
+    
+                    const formData = {
+                        email: document.getElementById('email').value,
+                        timestamp: new Date().toISOString()
+                    };
+    
+                    console.log('Form Data:', formData); // Add this to debug
+    
+                    // Try Firestore first
+                    try {
+                        await addDoc(collection(db, 'newsletterSubscriptions'), formData);
+                        console.log("Saved to Firestore successfully");
+                    } catch (firestoreError) {
+                        console.error("Firestore save failed:", firestoreError);
+                    }
+    
+                    // Try Realtime Database
+                    try {
+                        const userId = Date.now().toString();
+                        await set(ref(rtdb, 'newsletterSubscriptions/' + userId), formData);
+                        console.log("Saved to Realtime Database successfully");
+                        showStatus('Thank you for subscribing!');
+                    } catch (rtdbError) {
+                        console.error("RTDB save failed:", rtdbError);
+                    }
+    
+                    //showStatus('Message sent successfully!');
+                    form.reset();
+                } catch (error) {
+                    console.error('Error details:', error);
+                    showStatus('There was an error sending your message. Please try again.', true);
+                }
+            });
+        </script>
+    
+    <style>
+        /* Newsletter Section Styling */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+            background-image: url(); /* Add background image if needed */
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #041e42;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    
+        .newstext h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+        }
+    
+        .newstext p {
+            font-size: 14px;
+            font-weight: 600;
+            color: #818ea0;
+        }
+    
+        .newstext p span {
+            color: #ffbd27;
+        }
+    
+        .form {
+            display: flex;
+            width: 40%;
+        }
+    
+        .form input {
+            height: 3.125rem;
+            padding: 1.25rem;
+            font-size: 14px;
+            width: 100%;
+            border: 1px solid transparent;
+            outline: none;
+            border-radius: 5px;
+        }
+    
+        .button1 {
+            background-color: #235841;
+            color: #fff;
+            white-space: nowrap;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+    
+        .button1:hover {
+            background-color: #1b4633;
+        }
+    </style>
+    
+    </section>
+
+      <!-- Footer Section -->
+      <footer class="section-p1">
+        <div class="col">
+       <h3>Contact</h3>
+       <p><strong>Address: </strong>Pleasant view estate</p>
+       <p><strong>Phone: </strong>(+234) 80-2276-7228 & (+234) 70-4647-4965</p>
+       <p><strong>Hours: </strong>8:00 - 18:30</p>
+       <div class="follow">
+       <h3>Follow us</h3>
+       <div class="icon">
+       <a href="https://www.facebook.com/share/1AwpdstAph/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+       <i class="fab fa-facebook-f"></i>
+       </a>
+       <a href="https://x.com/propreserveng?s=11" target="_blank" rel="noopener noreferrer">
+       <i class="fab fa-twitter"></i>
+       </a>
+       <a href="https://www.instagram.com/liamsphere_propreserveng?igsh=MTdnZW5jYWdkZXBpbA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">
+       <i class="fab fa-instagram"></i>
+       </a>
+       <a href="https://pin.it/70dbedhiS" target="_blank" rel="noopener noreferrer">
+       <i class="fab fa-pinterest-p"></i>
+       </a>
+       <a href="https://youtube.com/@liamspherepropreserveng?si=3K05Xx9BHN6qgpI6" target="_blank" rel="noopener noreferrer">
+       <i class="fab fa-youtube"></i>
+       </a>
+       <a href="https://wa.me/2347046474965?text=Hello%20I%20am%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer">
+       <i class="fab fa-whatsapp"></i>
+       </a>
+       </div>
+       </div>
+       </div>
+       <div class="col">
+       <h3>About</h3>
+       <a href="About-us.html">About us</a>
+       <a href="Privacy-Policy.html">Privacy policy</a>
+       <a href="T&C.html">Terms & Conditions</a>
+       <a href="Contact-us.html">Contact us</a>
+       </div>
+       <div class="copyright">
+       <p>© copyright @ 2025 by SOMTO | all rights reserved!</p>
+       </div>
+        <style>
+            footer{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+
+footer .col{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+margin-bottom: 20px;
+}
+
+footer .logo{
+margin-bottom: 30px;
+}
+
+footer h3{
+font-size: 14px;
+padding-bottom: 20px;
+}
+
+footer p{
+font-size: 13px;
+margin: 0 0 8px 0;
+}
+
+footer a{
+font-size: 13px;
+text-decoration: none;
+color: #222;
+margin-bottom: 10px;
+}
+
+footer .follow{
+margin-top: 20px;
+}
+
+footer .follow i{
+color: black;
+font-size: 18px;
+padding-right: 4px;
+cursor: pointer;
+}
+
+footer .follow i:hover,
+footer a:hover{
+color: gold;
+}
+
+footer .copyright{
+width: 100%;
+text-align: center;
+}
+
+        </style>
+    </footer>
+    <script src="Home.js"></script>
+</body>
+</html>

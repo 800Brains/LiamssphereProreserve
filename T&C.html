@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, inital-scale=1.8">
+    <title> LIAMSPHERE </title>
+    <link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Header Section */
+        #header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 999;
+        }
+
+        .logo {
+            height: 60px;
+            width: 60px;
+        }
+
+        #navbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #navbar li {
+            list-style: none;
+            padding: 0 15px;
+        }
+
+        #navbar li a {
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+            transition: 0.3s ease;
+        }
+
+        #navbar li a:hover,
+        #navbar li a.active {
+            color: gold;
+        }
+
+        #mobile {
+            display: none;
+            align-items: center;
+        }
+
+        #close {
+            display: none;
+        }
+
+        /* Terms and Conditions Section */
+        #T\&C .card {
+            margin: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #T\&C h5 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        #T\&C p,
+        #T\&C li {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        #T\&C ul {
+            padding-left: 15px;
+        }
+
+        #T\&C ol {
+            padding-left: 20px;
+        }
+
+       
+
+        /* iPhone X (375 × 812) and iPhone 13 mini (375 × 812) specific styles */
+        @media (max-width: 390px) {
+            #header {
+                padding: 10px 15px;
+            }
+
+            .logo {
+                height: 50px;
+                width: 50px;
+            }
+
+            #navbar {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                position: fixed;
+                top: 0;
+                right: -300px;
+                height: 100vh;
+                width: 250px;
+                background-color: white;
+                box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+                padding: 70px 0 0 10px;
+                transition: 0.3s;
+                z-index: 1000;
+            }
+
+            #navbar.active {
+                right: 0px;
+            }
+
+            #navbar li {
+                margin-bottom: 20px;
+            }
+
+            #mobile {
+                display: flex;
+                align-items: center;
+            }
+
+            #mobile i {
+                color: #1a1a1a;
+                font-size: 22px;
+                padding-left: 15px;
+            }
+
+            #close {
+                display: block;
+                position: absolute;
+                top: 25px;
+                left: 25px;
+                color: #222;
+                font-size: 22px;
+            }
+
+            /* Adjustments for T&C section */
+            #T\&C .card {
+                margin: 5px;
+                padding: 10px;
+            }
+
+            #T\&C h5 {
+                font-size: 16px;
+            }
+
+            #T\&C p,
+            #T\&C li {
+                font-size: 12px;
+                padding: 5px;
+                margin: 5px;
+            }
+
+            /* Newsletter adjustments */
+            #newsletter .container {
+                flex-direction: column;
+            }
+
+            #newsletter .newstext {
+                text-align: center;
+                margin-bottom: 15px;
+            }
+
+            #newsletter .form {
+                display: flex;
+                width: 100%;
+            }
+
+            #newsletter .form input {
+                width: 70%;
+            }
+
+            #newsletter .button1 {
+                width: 30%;
+                font-size: 12px;
+                white-space: normal;
+                text-align: center;
+            }
+
+            /* Footer adjustments */
+            footer {
+                flex-direction: column;
+            }
+
+            footer .col {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+        }
+
+        /* Larger Mobile Devices */
+        @media (min-width: 391px) and (max-width: 480px) {
+            #navbar {
+                width: 280px;
+                right: -280px;
+            }
+
+            #T\&C .card {
+                margin: 8px;
+                padding: 12px;
+            }
+
+            #newsletter .form input {
+                width: 65%;
+            }
+
+            #newsletter .button1 {
+                width: 35%;
+            }
+        }
+
+        /* Medium Sized Devices */
+        @media (min-width: 481px) and (max-width: 768px) {
+            #navbar {
+                width: 300px;
+                right: -300px;
+            }
+
+            #newsletter .container {
+                flex-direction: column;
+            }
+
+            #newsletter .form {
+                width: 70%;
+                margin: 0 auto;
+                margin-top: 20px;
+            }
+
+            footer {
+                justify-content: space-around;
+            }
+
+            footer .col {
+                width: 45%;
+            }
+        }
+
+        /* Fixed positioning for the mobile menu toggle */
+        #mobile {
+            position: relative;
+            z-index: 998;
+        }
+
+        /* Ensure the navbar covers full height */
+        #navbar {
+            z-index: 1000;
+        }
+
+        /* Fix for newsletter form on very small screens */
+        @media (max-width: 320px) {
+            #newsletter .form {
+                flex-direction: column;
+            }
+
+            #newsletter .form input,
+            #newsletter .button1 {
+                width: 100%;
+                margin: 5px 0;
+                border-radius: 4px;
+            }
+        }
+
+        /* Ensure all content is readable */
+        #T\&C ul,
+        #T\&C ol {
+            list-style-position: inside;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <section id="header">
+        <a href="Home.html"><img src="Liamsphere logo 2.jpeg" class="logo" alt="" height="80px" width="80px"></a>
+        <div>
+            <ul id="navbar" style="background-color: white;">
+                <div id="nav-top">
+                    <a href="#" id="close"><i class="far fa-times"></i></a>
+                </div>
+                <li><a id="nav-home" class="active" href="Home.html">HOME</a></li>
+                <li><a id="nav-services" href="Our-services.html">OUR SERVICES</a></li>
+                <li><a id="nav-about" href="About-us.html">ABOUT US</a></li>
+                <li><a id="nav-contact" href="Contact-us.html">CONTACT US</a></li>
+                <li><a id="nav-register" href="Register.html">REGISTER WITH US</a></li>
+            </ul>
+        </div>
+        <div id="mobile">
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const bar = document.getElementById("bar");
+            const close = document.getElementById("close");
+            const nav = document.getElementById("navbar");
+
+            if (bar) {
+                bar.addEventListener("click", (e) => {
+                    e.stopPropagation(); // Prevent event bubbling
+                    nav.classList.add("active");
+                });
+            }
+
+            if (close) {
+                close.addEventListener("click", (e) => {
+                    e.stopPropagation(); // Prevent event bubbling
+                    nav.classList.remove("active");
+                });
+            }
+
+            // Close navbar when clicking outside
+            document.addEventListener("click", (e) => {
+                if (!nav.contains(e.target) && !bar.contains(e.target)) {
+                    nav.classList.remove("active");
+                }
+            });
+        });
+    </script>
+    <style>
+        @media(max-width:779px) {
+            .section-p1 {
+                padding: 40px 40px;
+            }
+
+            #navbar {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                position: fixed;
+                top: 0;
+                right: -300px;
+                height: 100vh;
+                width: 300px;
+                background-color: #e3e6f3;
+                box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+                padding: 80px 0 0 10px;
+                transition: 0.3s;
+            }
+
+            #navbar .active {
+                right: 0px;
+            }
+
+            #navbar li {
+                margin-bottom: 25px;
+            }
+
+            #mobile {
+                display: flex;
+                align-items: center;
+            }
+
+            #mobile i {
+                color: #1a1a1a;
+                font-size: 24px;
+                padding-left: 20px;
+            }
+
+            #close {
+                display: initial;
+                position: absolute;
+                top: 30px;
+                left: 30px;
+                color: #222;
+                font-size: 24px;
+            }
+        }
+
+        @media(max-width: 477px) {
+            #navbar {
+                padding: 10px 30px;
+            }
+
+        }
+    </style>
+    </section>
+
+    <section id="T&C">
+        <div class="card" style="margin: 10px 10px; padding: 10px 10px;">
+            <center>
+                <h5 style="color: black; padding: 10px; margin: 10px; font-size: 20px;">Terms and Conditions</h5>
+            </center>
+            <p style="color: black; padding: 10px; margin: 10px;"> By accessing or using the services of LIAMSPHERE
+                ProPreserveNG,
+                you agree to comply with the following terms and conditions. If you do not agree, please refrain from
+                using our services. </p><br>
+            <ul>
+                <li style="color: black; padding: 10px; margin: 10px; font-weight: bold;">Services</li> <br>
+                <ol>
+                    <li style="color: black; padding: 10px; margin: 10px;"> We provide property preservation and
+                        maintenance services, including but not limited to
+                        inspections, cleaning, lawn care, repairs, debris removal, pest control, winterization, and
+                        emergency repairs. </li>
+                    <li style="color: black; padding: 10px; margin: 10px;"> All service requests must be submitted
+                        through our official channels,
+                        including our website, email, or phone. </li>
+                    <li style="color: black; padding: 10px; margin: 10px;"> Services are subject to availability and may
+                        be modified without prior notice. </li>
+                </ol>
+                </p>
+                <li style="color: black; padding: 10px; margin: 10px; font-weight: bold;"> Payments and Pricing </li>
+                <br>
+                <ol>
+                    <li style="color: black; padding: 10px; margin: 10px;"> All service fees are determined based on
+                        property size,
+                        condition, and specific requirements. </li>
+                    <li style="color: black; padding: 10px; margin: 10px;"> A deposit may be required before work
+                        begins, and full payment
+                        is due upon completion unless otherwise agreed. </li>
+                    <li style="color: black; padding: 10px; margin: 10px;"> Late payments may incur penalties or
+                        suspension of services. </li>
+                    <li style="color: black; padding: 10px; margin: 10px;"> All payments must be made through the
+                        approved payment methods provided by LIAMSPHERE ProPreserveNG. </li>
+                </ol>
+                </p>
+                <li style="color: black; padding: 10px; margin: 10px; font-weight: bold;"> Cancellations and Refunds
+                </li> <br>
+                <ol>
+                    <li style="color: black; padding: 10px; margin: 10px;"> Clients may cancel a service request within
+                        [X] hours
+                        before the scheduled service to qualify for a refund. </li>
+                    <li style="color: black; padding: 10px; margin: 10px;"> Cancellations after work has commenced may
+                        not be eligible for a refund. </li>
+                    <li style="color: black; padding: 10px; margin: 10px;"> Refunds are issued at our discretion and
+                        based on the nature and extent of the work completed. </li>
+                </ol>
+                </p>
+                <li style="color: black; padding: 10px; margin: 10px; font-weight: bold;"> Client Responsibilities </li>
+                <br>
+                <ol>
+                    <li style="color: black; padding: 10px; margin: 10px;"> Clients must provide accurate property
+                        details, access to the site,
+                        and any necessary permissions for work to be carried out. </li>
+                    <li style="color: black; padding: 10px; margin: 10px;"> Any delays or additional costs arising due
+                        to incorrect information,
+                        restricted access, or unforeseen circumstances at the property will be the client’s
+                        responsibility. </li>
+                    <li style="color: black; padding: 10px; margin: 10px;"> Clients must notify us of any specific
+                        property conditions,
+                        risks, or hazards that may affect service execution. </li>
+                </ol>
+                </p>
+                <li style="color: black; padding: 10px; margin: 10px; font-weight: bold;"> Liability and Limitations
+                </li> <br>
+                <ol>
+                    <li style="color: black; padding: 10px; margin: 10px;"> While we take every precaution to ensure
+                        high-quality service,
+                        we are not liable for indirect, incidental, or consequential damages. </li>
+                    <li style="color: black; padding: 10px; margin: 10px;"> We are not responsible for pre-existing
+                        damages, defects,
+                        or structural issues unrelated to our services. </li>
+                    <li style="color: black; padding: 10px; margin: 10px;"> Our liability is strictly limited to the
+                        amount paid for the service in question. </li>
+                </ol>
+                </p>
+                <li style="color: black; padding: 10px; margin: 10px; font-weight: bold;"> Warranties and Service
+                    Guarantees </li> <br>
+                <ol>
+                    <li style="color: black; padding: 10px; margin: 10px;"> We strive to deliver services as outlined in
+                        our agreements,
+                        but we do not guarantee specific outcomes beyond the agreed scope. </li>
+                    <li style="color: black; padding: 10px; margin: 10px;"> Any issues arising after service completion
+                        must
+                        be reported within [X] days for review and possible resolution. </li>
+                </ol>
+                </p>
+                <li style="color: black; padding: 10px; margin: 10px; font-weight: bold;"> Intellectual Property </li>
+                <br>
+                <ol>
+                    <li style="color: black; padding: 10px; margin: 10px;"> All content, materials, and branding on our
+                        website and
+                        within our service documentation remain the property of LIAMSPHERE ProPreserveNG and may not be
+                        copied,
+                        modified, or distributed without permission. </li>
+                </ol>
+                </p>
+                <li style="color: black; padding: 10px; margin: 10px; font-weight: bold;"> Privacy and Data Protection
+                </li> <br>
+                <ol>
+                    <li style="color: black; padding: 10px; margin: 10px;"> We collect and process client information as
+                        outlined in our [Privacy Policy].
+                        By using our services, you consent to our data practices. </li>
+                    <li style="color: black; padding: 10px; margin: 10px;"> We do not sell or share client information
+                        with unauthorized third parties. </li>
+                </ol>
+                </p>
+                <li style="color: black; padding: 10px; margin: 10px; font-weight: bold;"> Third-Party Links and
+                    Services </li> <br>
+                <ol>
+                    <li style="color: black; padding: 10px; margin: 10px;"> Our website may contain links to third-party
+                        websites. We are not responsible
+                        for the content, policies, or services provided by these external sites. </li>
+                </ol>
+                </p>
+                <li style="color: black; padding: 10px; margin: 10px; font-weight: bold;"> Amendments </li> <br>
+                <ol>
+                    <li style="color: black; padding: 10px; margin: 10px;"> We reserve the right to update or modify
+                        these terms at any time.
+                        Changes will be posted on this page, and continued use of our services constitutes acceptance of
+                        the revised terms. </li>
+                </ol>
+                </p>
+                <li style="color: black; padding: 10px; margin: 10px; font-weight: bold;"> Governing Law </li> <br>
+                <ol>
+                    <li style="color: black; padding: 10px; margin: 10px;"> These Terms and Conditions are governed by
+                        the laws of Nigeria.
+                        Any disputes shall be resolved under the jurisdiction of Nigerian courts. </li>
+                </ol>
+                </p>
+                <li style="color: black; padding: 10px; margin: 10px; font-weight: bold;"> Contact Information </li>
+                <br>
+                <p style="color: black; padding: 10px; margin: 10px;">For inquiries regarding these Terms and
+                    Conditions, please contact us:
+                <ol>
+                    <li style="color: black; padding: 10px; margin: 10px;"> 📧 Email:
+                        <strong>liamsphereventures@yahoo.com & liamsphere_ventures@aol.com </strong>
+                    </li>
+                    <li style="color: black; padding: 10px; margin: 10px;"> 📞 Phone: <strong>(+234) 80-2276-7228 &
+                            (+234) 70-4647-4965</strong> </li>
+                </ol>
+                </p>
+
+            </ul>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="section-p1">
+        <div class="container">
+            <div class="newstext">
+                <h3>Sign Up For Newsletters</h3>
+                <p>Get E-mail updates about our new services <span>special offers.</span></p>
+            </div>
+
+            <form id="newsletterForm" class="form">
+                <input type="email" id="email" placeholder="Your email address" required>
+                <button type="submit" class="button1">Sign Up</button>
+            </form>
+
+            <p id="formStatus"></p>
+        </div>
+
+        <script type="module">
+            // Import Firebase SDKs
+            import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
+            import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js';
+            import { getDatabase, ref, set } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js';
+
+            // Firebase Configuration
+            const firebaseConfig = {
+                apiKey: "AIzaSyB155iTCgJjUO0plgpLZdLMdKKuhhitFH0",
+                authDomain: "liamsphere-propreserveng.firebaseapp.com",
+                databaseURL: "https://liamsphere-propreserveng-default-rtdb.firebaseio.com",
+                projectId: "liamsphere-propreserveng",
+                storageBucket: "liamsphere-propreserveng.appspot.com",
+                messagingSenderId: "99918060866",
+                appId: "1:99918060866:web:b6a4321e82570b1a1dfcdb",
+                measurementId: "G-4KCEC0TH8Q"
+            };
+
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+            const rtdb = getDatabase(app);
+
+            // Form handling
+            const form = document.getElementById('newsletterForm');
+            const formStatus = document.getElementById('formStatus');
+
+            // Function to Show Status Messages
+            const showStatus = (message, isError = false) => {
+                formStatus.textContent = message;
+                formStatus.className = isError ? 'error' : 'success';
+                formStatus.style.display = 'block';
+                setTimeout(() => {
+                    formStatus.style.display = 'none';
+                }, 5000);
+            };
+
+            // Form Submission Event Listener
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                try {
+                    if (!db || !rtdb) {
+                        throw new Error("Firebase not initialized properly");
+                    }
+
+                    const formData = {
+                        email: document.getElementById('email').value,
+                        timestamp: new Date().toISOString()
+                    };
+
+                    console.log('Form Data:', formData); // Add this to debug
+
+                    // Try Firestore first
+                    try {
+                        await addDoc(collection(db, 'newsletterSubscriptions'), formData);
+                        console.log("Saved to Firestore successfully");
+                    } catch (firestoreError) {
+                        console.error("Firestore save failed:", firestoreError);
+                    }
+
+                    // Try Realtime Database
+                    try {
+                        const userId = Date.now().toString();
+                        await set(ref(rtdb, 'newsletterSubscriptions/' + userId), formData);
+                        console.log("Saved to Realtime Database successfully");
+                        showStatus('Thank you for subscribing!');
+                    } catch (rtdbError) {
+                        console.error("RTDB save failed:", rtdbError);
+                    }
+
+                    //showStatus('Message sent successfully!');
+                    form.reset();
+                } catch (error) {
+                    console.error('Error details:', error);
+                    showStatus('There was an error sending your message. Please try again.', true);
+                }
+            });
+        </script>
+
+<style>
+    /* Newsletter Section Styling */
+    .container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+        background-image: url(); /* Add background image if needed */
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: #041e42;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .newstext h3 {
+        font-size: 22px;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .newstext p {
+        font-size: 14px;
+        font-weight: 600;
+        color: #818ea0;
+    }
+
+    .newstext p span {
+        color: #ffbd27;
+    }
+
+    .form {
+        display: flex;
+        width: 40%;
+    }
+
+    .form input {
+        height: 3.125rem;
+        padding: 1.25rem;
+        font-size: 14px;
+        width: 100%;
+        border: 1px solid transparent;
+        outline: none;
+        border-radius: 5px;
+    }
+
+    .button1 {
+        background-color: #235841;
+        color: #fff;
+        white-space: nowrap;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .button1:hover {
+        background-color: #1b4633;
+    }
+</style>
+
+    </section>
+
+
+    <!-- Footer Section -->
+    <footer class="section-p1">
+        <div class="col">
+       <h3>Contact</h3>
+       <p><strong>Address: </strong>Pleasant view estate</p>
+       <p><strong>Phone: </strong>(+234) 80-2276-7228 & (+234) 70-4647-4965</p>
+       <p><strong>Hours: </strong>8:00 - 18:30</p>
+       <div class="follow">
+       <h3>Follow us</h3>
+       <div class="icon">
+       <a href="https://www.facebook.com/share/1AwpdstAph/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+       <i class="fab fa-facebook-f"></i>
+       </a>
+       <a href="https://x.com/propreserveng?s=11" target="_blank" rel="noopener noreferrer">
+       <i class="fab fa-twitter"></i>
+       </a>
+       <a href="https://www.instagram.com/liamsphere_propreserveng?igsh=MTdnZW5jYWdkZXBpbA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">
+       <i class="fab fa-instagram"></i>
+       </a>
+       <a href="https://pin.it/70dbedhiS" target="_blank" rel="noopener noreferrer">
+       <i class="fab fa-pinterest-p"></i>
+       </a>
+       <a href="https://youtube.com/@liamspherepropreserveng?si=3K05Xx9BHN6qgpI6" target="_blank" rel="noopener noreferrer">
+       <i class="fab fa-youtube"></i>
+       </a>
+       <a href="https://wa.me/2347046474965?text=Hello%20I%20am%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer">
+       <i class="fab fa-whatsapp"></i>
+       </a>
+       </div>
+       </div>
+       </div>
+       <div class="col">
+       <h3>About</h3>
+       <a href="About-us.html">About us</a>
+       <a href="Privacy-Policy.html">Privacy policy</a>
+       <a href="T&C.html">Terms & Conditions</a>
+       <a href="Contact-us.html">Contact us</a>
+       </div>
+       <div class="copyright">
+       <p>© copyright @ 2025 by SOMTO | all rights reserved!</p>
+       </div>
+        <style>
+            footer{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+
+footer .col{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+margin-bottom: 20px;
+}
+
+footer .logo{
+margin-bottom: 30px;
+}
+
+footer h3{
+font-size: 14px;
+padding-bottom: 20px;
+}
+
+footer p{
+font-size: 13px;
+margin: 0 0 8px 0;
+}
+
+footer a{
+font-size: 13px;
+text-decoration: none;
+color: #222;
+margin-bottom: 10px;
+}
+
+footer .follow{
+margin-top: 20px;
+}
+
+footer .follow i{
+color: black;
+padding-right: 4px;
+cursor: pointer;
+}
+
+footer .follow i:hover,
+footer a:hover{
+color: gold;
+}
+
+footer .copyright{
+width: 100%;
+text-align: center;
+}
+
+        </style>
+    </footer>
+    <script src="Home.js"></script>
+</body>
+
+</html>

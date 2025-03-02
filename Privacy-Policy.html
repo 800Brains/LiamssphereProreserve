@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, inital-scale=1.8">
+    <title> LIAMSPHERE  </title>
+    <link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Base styles */
+body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Header styling */
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar li {
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+#navbar li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: 0.3s ease;
+}
+
+#navbar li a:hover,
+#navbar li a.active {
+    color: gold;
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after {
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: gold;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+
+#mobile {
+    display: none;
+    align-items: center;
+}
+
+#close {
+    display: none;
+}
+
+/* Privacy Policy section */
+#Privacy-Policy .card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Newsletter styling */
+#newsletter {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #041e42;
+    padding: 40px 80px;
+}
+
+#newsletter .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #041e42;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+#newsletter .newstext h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+}
+
+#newsletter .newstext p {
+    font-size: 14px;
+    font-weight: 600;
+    color: #818ea0;
+}
+
+#newsletter .newstext p span {
+    color: #ffbd27;
+}
+
+#newsletter .form {
+    display: flex;
+    width: 40%;
+}
+
+#newsletter .form input {
+    height: 3.125rem;
+    padding: 1.25rem;
+    font-size: 14px;
+    width: 100%;
+    border: 1px solid transparent;
+    outline: none;
+    border-radius: 5px 0 0 5px;
+}
+
+#newsletter .button1 {
+    background-color: #235841;
+    color: #fff;
+    white-space: nowrap;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    font-size: 16px;
+}
+
+#newsletter .button1:hover {
+    background-color: #1b4633;
+}
+
+/* Footer styling */
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 40px 80px;
+    background-color: #f8f9fa;
+}
+
+footer .col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+footer .logo {
+    margin-bottom: 30px;
+}
+
+footer h3 {
+    font-size: 14px;
+    padding-bottom: 20px;
+    font-weight: 600;
+}
+
+footer p {
+    font-size: 13px;
+    margin: 0 0 8px 0;
+}
+
+footer a {
+    font-size: 13px;
+    text-decoration: none;
+    color: #222;
+    margin-bottom: 10px;
+    transition: 0.3s ease;
+}
+
+footer .follow {
+    margin-top: 20px;
+}
+
+footer .follow i {
+    color: black;
+    padding-right: 4px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+footer .follow i:hover,
+footer a:hover {
+    color: gold;
+}
+
+footer .copyright {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Section padding standard */
+.section-p1 {
+    padding: 40px 80px;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 799px) {
+    /* Tablet and smaller */
+    .section-p1 {
+        padding: 40px 40px;
+    }
+    
+    #navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        height: 100vh;
+        width: 300px;
+        background-color: white;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+        padding: 80px 0 0 10px;
+        transition: 0.3s ease;
+        z-index: 1000;
+    }
+    
+    #navbar.active {
+        right: 0;
+    }
+    
+    #navbar li {
+        margin-bottom: 25px;
+    }
+    
+    #mobile {
+        display: flex;
+        align-items: center;
+    }
+    
+    #mobile i {
+        color: #1a1a1a;
+        font-size: 24px;
+        padding-left: 20px;
+        cursor: pointer;
+    }
+    
+    #close {
+        display: block;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        color: #222;
+        font-size: 24px;
+        cursor: pointer;
+    }
+    
+    /* Newsletter adjustments */
+    #newsletter .form {
+        width: 70%;
+    }
+}
+
+@media (max-width: 428px) {
+    /* Mobile specific - for iPhone X (375px) and iPhone 13 mini (375px) */
+    #header {
+        padding: 10px 15px;
+    }
+    
+    #header .logo {
+        height: 60px;
+        width: 60px;
+    }
+    
+    /* Further reduce navbar width */
+    #navbar {
+        width: 250px;
+        padding: 80px 0 0 10px;
+    }
+    
+    /* Privacy Policy section */
+    #Privacy-Policy .card {
+        margin: 5px !important;
+        padding: 5px !important;
+    }
+    
+    #Privacy-Policy h5 {
+        font-size: 18px !important;
+        margin: 5px !important;
+        padding: 5px !important;
+    }
+    
+    #Privacy-Policy p, #Privacy-Policy li {
+        font-size: 14px !important;
+        padding: 5px !important;
+        margin: 5px !important;
+        line-height: 1.4;
+    }
+    
+    #Privacy-Policy ul, #Privacy-Policy ol {
+        padding-left: 15px !important;
+    }
+    
+    /* Newsletter section */
+    #newsletter {
+        padding: 20px 10px !important;
+    }
+    
+    #newsletter .container {
+        flex-direction: column;
+        padding: 15px;
+    }
+    
+    #newsletter .newstext {
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    
+    #newsletter .newstext h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    #newsletter .newstext p {
+        font-size: 12px;
+    }
+    
+    #newsletter .form {
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    #newsletter .form input {
+        height: 2.5rem;
+        padding: 0.75rem;
+        font-size: 12px;
+    }
+    
+    #newsletter .button1 {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+    
+    /* Footer section */
+    footer {
+        padding: 20px 10px !important;
+        flex-direction: column;
+    }
+    
+    footer .col {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    footer h3 {
+        font-size: 16px;
+        padding-bottom: 10px;
+    }
+    
+    footer p, footer a {
+        font-size: 12px;
+    }
+    
+    footer .follow {
+        margin-top: 10px;
+    }
+    
+    footer .follow i {
+        font-size: 16px;
+        margin-right: 8px;
+    }
+    
+    footer .copyright {
+        margin-top: 10px;
+        font-size: 12px;
+    }
+    
+    /* Section padding fixes */
+    .section-p1 {
+        padding: 20px 10px !important;
+    }
+}
+
+/* iPhone X specific adjustments */
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+    /* Account for the notch */
+    #header {
+        padding-top: 15px;
+    }
+    
+    #navbar {
+        padding-top: 100px;
+    }
+}
+
+/* iPhone 13 mini specific adjustments */
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+    /* Same dimensions as iPhone X, specific adjustments if needed */
+}
+
+/* Fix for the viewport on mobile */
+@media (max-width: 480px) {
+    html, body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <section id="header">
+        <a href="Home.html"><img src="Liamsphere logo 2.jpeg" class="logo" alt="" height="80px" width="80px"></a>
+        <div>
+          <ul id="navbar" style="background-color: white;">
+            <div id="nav-top">
+              <a href="#" id="close"><i class="far fa-times"></i></a>
+            </div>
+            <li><a id="nav-home" class="active" href="Home.html">HOME</a></li>
+            <li><a id="nav-services" href="Our-services.html">OUR SERVICES</a></li>
+            <li><a id="nav-about" href="About-us.html">ABOUT US</a></li>
+            <li><a id="nav-contact" href="Contact-us.html">CONTACT US</a></li>
+            <li><a id="nav-register" href="Register.html">REGISTER WITH US</a></li>
+          </ul>
+        </div>
+        <div id="mobile">
+          <i id="bar" class="fas fa-outdent"></i>
+        </div>
+      </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const bar = document.getElementById("bar");
+    const close = document.getElementById("close");
+    const nav = document.getElementById("navbar");
+
+    if (bar) {
+        bar.addEventListener("click", (e) => {
+            e.stopPropagation(); // Prevent event bubbling
+            nav.classList.add("active");
+        });
+    }
+
+    if (close) {
+        close.addEventListener("click", (e) => {
+            e.stopPropagation(); // Prevent event bubbling
+            nav.classList.remove("active");
+        });
+    }
+
+    // Close navbar when clicking outside
+    document.addEventListener("click", (e) => {
+        if (!nav.contains(e.target) && !bar.contains(e.target)) {
+            nav.classList.remove("active");
+        }
+    });
+});
+    </script>
+        <style>
+            @media(max-width:779px){
+    .section-p1{
+        padding: 40px 40px;
+    }
+#navbar{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    right: -300px;
+    height: 100vh;
+    width: 300px;
+    background-color:#e3e6f3 ;
+    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+    padding: 80px 0 0 10px;
+    transition: 0.3s;
+}
+
+#navbar .active{
+    right: 0px;
+}
+
+#navbar li{
+    margin-bottom: 25px;
+}
+
+#mobile{
+    display: flex;
+    align-items: center;
+}
+
+#mobile i{
+    color: #1a1a1a;
+    font-size: 24px;
+    padding-left: 20px;
+}
+
+#close{
+    display: initial;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: #222;
+    font-size: 24px;
+}
+}
+
+@media(max-width: 477px){
+    #navbar{
+        padding: 10px 30px;
+    }
+    
+}
+
+        </style>
+    </section>
+
+    <section id="Privacy-Policy">
+        <div class="card" style="margin: 10px 10px; padding: 10px 10px;">
+        <center><h5 style="color: black; padding: 10px; margin: 10px; font-size: 20px;">Privacy Policy</h5></center>
+        <p style="color: black; padding: 10px; margin: 10px;"> Welcome to LIAMSPHERE ProPreserveNG. Your privacy is important to us. 
+            This Privacy Policy explains how we collect, use, disclose, 
+            and protect your personal information when you visit our website or use our services. <br>
+            By accessing our website or engaging with our services, 
+            you agree to the terms outlined in this Privacy Policy. 
+            If you do not agree, please discontinue use of our website and services.
+             <br>
+            <ul>
+                    <li style="color: black; padding: 10px; margin: 10px; font-weight: bold;">Information We Collect</li>
+                        <p style="color: black; padding: 10px; margin: 10px;">We collect different types of information to improve our 
+                            services and provide a seamless experience for our clients.</p>
+            
+                    <li style="color: black; padding: 10px; margin: 10px; font-weight: bold;">Personal Information</li> <br>
+                     <p style="color: black; padding: 10px; margin: 10px;">When you contact us, request a service, 
+                        or subscribe to our updates, we may collect:
+                        <ol>
+                            <li style="color: black; padding: 10px; margin: 10px;"> Full name </li>
+                            <li style="color: black; padding: 10px; margin: 10px;"> Email address </li>
+                            <li style="color: black; padding: 10px; margin: 10px;"> Phone number </li>
+                            <li style="color: black; padding: 10px; margin: 10px;"> Property address (for service locations) </li>
+                        </ol>
+                        </p>
+                        <li style="color: black; padding: 10px; margin: 10px; font-weight: bold;">Non-Personal Information</li> <br>
+                        <p style="color: black; padding: 10px; margin: 10px;">We may also collect non-personal information such as:
+                           <ol>
+                               <li style="color: black; padding: 10px; margin: 10px;"> IP address </li>
+                               <li style="color: black; padding: 10px; margin: 10px;"> Browser type and version </li>
+                               <li style="color: black; padding: 10px; margin: 10px;"> Device information </li>
+                               <li style="color: black; padding: 10px; margin: 10px;"> Website usage data (e.g., pages visited, time spent, 
+                                click activity) </li>
+                           </ol>
+                           </p>
+                           <li style="color: black; padding: 10px; margin: 10px; font-weight: bold;"> How We Use Your Information</li> <br>
+                           <p style="color: black; padding: 10px; margin: 10px;">We use the information we collect for the following purposes:
+                              <ol>
+                                  <li style="color: black; padding: 10px; margin: 10px;"> To process service requests and communicate with you </li>
+                                  <li style="color: black; padding: 10px; margin: 10px;"> To personalize your experience on our website </li>
+                                  <li style="color: black; padding: 10px; margin: 10px;"> To improve our services and website functionality </li>
+                                  <li style="color: black; padding: 10px; margin: 10px;"> To send service updates, promotions, or newsletters (you may opt out at any time) </li>
+                                  <li style="color: black; padding: 10px; margin: 10px;"> To comply with legal obligations and enforce our policies </li>
+                              </ol>
+                              </p>
+                              <li style="color: black; padding: 10px; margin: 10px; font-weight: bold;"> How We Protect Your Information </li> <br>
+                              <p style="color: black; padding: 10px; margin: 10px;"> We take data security seriously and implement various measures to protect your 
+                                personal information, including:
+                                 <ol>
+                                     <li style="color: black; padding: 10px; margin: 10px;"> Secure servers and encryption protocols </li>
+                                     <li style="color: black; padding: 10px; margin: 10px;"> Restricted access to sensitive data </li>
+                                     <li style="color: black; padding: 10px; margin: 10px;"> Regular security updates and monitoring </li>
+                                 </ol>
+                                 <p style="color: black; padding: 10px; margin: 10px;" >However, no data transmission over the internet is 100% secure. 
+                                    While we strive to protect your information, we cannot guarantee absolute security.</p>
+                                 </p>
+                    <li style="color: black; padding: 10px; margin: 10px; font-weight: bold;"> Sharing Your Information </li>
+                    <p style="color: black; padding: 10px; margin: 10px;"> We do not sell, rent, or trade your personal information. 
+                        However, we may share it in the following cases: </p>
+            
+                    <li style="color: black; padding: 10px; margin: 10px; font-weight: bold;">A. Third-Party Service Providers </li>
+                    <p style="color: black; padding: 10px; margin: 10px;"> We work with trusted partners to process payments, analyze website traffic, and provide customer support. 
+                        These providers are required to maintain the confidentiality of your data. </p>
+            
+                    <li style="color: black; padding: 10px; margin: 10px; font-weight: bold;"> B. Legal Compliance </li>
+                    <p style="color: black; padding: 10px; margin: 10px;"> We may disclose your information if required by law, 
+                        to protect our rights, or to prevent fraudulent activities. </p>
+                        <li style="color: black; padding: 10px; margin: 10px; font-weight: bold;">Cookies and Tracking Technologies</li> <br>
+                        <p style="color: black; padding: 10px; margin: 10px;">Our website may use cookies to improve user experience and analyze website traffic. 
+                            Cookies help us:
+                           <ol>
+                               <li style="color: black; padding: 10px; margin: 10px;"> Remember user preferences </li>
+                               <li style="color: black; padding: 10px; margin: 10px;">  Track visitor interactions for website improvement </li>
+                               <li style="color: black; padding: 10px; margin: 10px;"> Provide personalized service recommendations </li>
+                               <p style="color: black; padding: 10px; margin: 10px;"> You can disable cookies in your browser settings, 
+                                but doing so may affect website functionality. </p>
+                           </ol>
+                           </p>
+                           <li style="color: black; padding: 10px; margin: 10px; font-weight: bold;">Your Data Rights</li> <br>
+                           <p style="color: black; padding: 10px; margin: 10px;"> Depending on your location and applicable laws, you may have the following rights:
+                              <ol>
+                                  <li style="color: black; padding: 10px; margin: 10px;"> Access: Request a copy of the personal data we have collected. </li>
+                                  <li style="color: black; padding: 10px; margin: 10px;"> Correction: Request correction of inaccurate or incomplete information. </li>
+                                  <li style="color: black; padding: 10px; margin: 10px;"> Correction: Request correction of inaccurate or incomplete information. </li>
+                                  <li style="color: black; padding: 10px; margin: 10px;"> Deletion: Request deletion of your personal data, subject to legal requirements. </li>
+                                  <li style="color: black; padding: 10px; margin: 10px;"> Opt-Out: Unsubscribe from marketing emails or restrict data processing </li>
+                              </ol>
+                              <p style="color: black; padding: 10px; margin: 10px;"> To exercise any of these rights, please contact us at <br> <strong>liamsphereventures@yahoo.com</strong> or <br><strong>liamsphere_ventures@aol.com</strong>. </p>
+                              </p>
+                  
+            
+                    <li style="color: black; padding: 10px; margin: 10px; font-weight: bold;">Third-Party Links </li>
+                    <p style="color: black; padding: 10px; margin: 10px;"> Our website may contain links to third-party websites. We are not responsible for their privacy policies or practices. We encourage you to 
+                        review their policies before providing any personal information. </p>
+            
+                    <li style="color: black; padding: 10px; margin: 10px; font-weight: bold;"> Updates to This Policy </li>
+                    <p style="color: black; padding: 10px; margin: 10px;"> We may update this Privacy Policy from time to time. Any changes will be posted on this page, 
+                        and continued use of our services means you accept the updated policy. </p>
+            </ul>    
+        </p>
+        </div>
+        </section>
+        
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="section-p1">
+        <div class="container">
+            <div class="newstext">
+                <h3>Sign Up For Newsletters</h3>
+                <p>Get E-mail updates about our new services <span>special offers.</span></p>
+            </div>
+    
+            <form id="newsletterForm" class="form">
+                <input type="email" id="email" placeholder="Your email address" required>
+                <button type="submit" class="button1">Sign Up</button>
+            </form>
+    
+            <p id="formStatus"></p>
+        </div>
+    
+        <script type="module">
+            // Import Firebase SDKs
+            import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
+            import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js';
+            import { getDatabase, ref, set } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js';
+    
+            // Firebase Configuration
+            const firebaseConfig = {
+                apiKey: "AIzaSyB155iTCgJjUO0plgpLZdLMdKKuhhitFH0",
+                authDomain: "liamsphere-propreserveng.firebaseapp.com",
+                databaseURL: "https://liamsphere-propreserveng-default-rtdb.firebaseio.com",
+                projectId: "liamsphere-propreserveng",
+                storageBucket: "liamsphere-propreserveng.appspot.com",
+                messagingSenderId: "99918060866",
+                appId: "1:99918060866:web:b6a4321e82570b1a1dfcdb",
+                measurementId: "G-4KCEC0TH8Q"
+            };
+    
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+            const rtdb = getDatabase(app);
+    
+            // Form handling
+            const form = document.getElementById('newsletterForm');
+            const formStatus = document.getElementById('formStatus');
+    
+            // Function to Show Status Messages
+            const showStatus = (message, isError = false) => {
+                formStatus.textContent = message;
+                formStatus.className = isError ? 'error' : 'success';
+                formStatus.style.display = 'block';
+                setTimeout(() => {
+                    formStatus.style.display = 'none';
+                }, 5000);
+            };
+    
+            // Form Submission Event Listener
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+    
+                try {
+                    if (!db || !rtdb) {
+                        throw new Error("Firebase not initialized properly");
+                    }
+    
+                    const formData = {
+                        email: document.getElementById('email').value,
+                        timestamp: new Date().toISOString()
+                    };
+    
+                    console.log('Form Data:', formData); // Add this to debug
+    
+                    // Try Firestore first
+                    try {
+                        await addDoc(collection(db, 'newsletterSubscriptions'), formData);
+                        console.log("Saved to Firestore successfully");
+                    } catch (firestoreError) {
+                        console.error("Firestore save failed:", firestoreError);
+                    }
+    
+                    // Try Realtime Database
+                    try {
+                        const userId = Date.now().toString();
+                        await set(ref(rtdb, 'newsletterSubscriptions/' + userId), formData);
+                        console.log("Saved to Realtime Database successfully");
+                        showStatus('Thank you for subscribing!');
+                    } catch (rtdbError) {
+                        console.error("RTDB save failed:", rtdbError);
+                    }
+    
+                    //showStatus('Message sent successfully!');
+                    form.reset();
+                } catch (error) {
+                    console.error('Error details:', error);
+                    showStatus('There was an error sending your message. Please try again.', true);
+                }
+            });
+        </script>
+    
+    <style>
+        /* Newsletter Section Styling */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+            background-image: url(); /* Add background image if needed */
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #041e42;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    
+        .newstext h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+        }
+    
+        .newstext p {
+            font-size: 14px;
+            font-weight: 600;
+            color: #818ea0;
+        }
+    
+        .newstext p span {
+            color: #ffbd27;
+        }
+    
+        .form {
+            display: flex;
+            width: 40%;
+        }
+    
+        .form input {
+            height: 3.125rem;
+            padding: 1.25rem;
+            font-size: 14px;
+            width: 100%;
+            border: 1px solid transparent;
+            outline: none;
+            border-radius: 5px;
+        }
+    
+        .button1 {
+            background-color: #235841;
+            color: #fff;
+            white-space: nowrap;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+    
+        .button1:hover {
+            background-color: #1b4633;
+        }
+    </style>
+    
+    </section>
+
+
+      <!-- Footer Section -->
+      <footer class="section-p1">
+        <div class="col">
+       <h3>Contact</h3>
+       <p><strong>Address: </strong>Pleasant view estate</p>
+       <p><strong>Phone: </strong>(+234) 80-2276-7228 & (+234) 70-4647-4965</p>
+       <p><strong>Hours: </strong>8:00 - 18:30</p>
+       <div class="follow">
+       <h3>Follow us</h3>
+       <div class="icon">
+       <a href="https://www.facebook.com/share/1AwpdstAph/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+       <i class="fab fa-facebook-f"></i>
+       </a>
+       <a href="https://x.com/propreserveng?s=11" target="_blank" rel="noopener noreferrer">
+       <i class="fab fa-twitter"></i>
+       </a>
+       <a href="https://www.instagram.com/liamsphere_propreserveng?igsh=MTdnZW5jYWdkZXBpbA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">
+       <i class="fab fa-instagram"></i>
+       </a>
+       <a href="https://pin.it/70dbedhiS" target="_blank" rel="noopener noreferrer">
+       <i class="fab fa-pinterest-p"></i>
+       </a>
+       <a href="https://youtube.com/@liamspherepropreserveng?si=3K05Xx9BHN6qgpI6" target="_blank" rel="noopener noreferrer">
+       <i class="fab fa-youtube"></i>
+       </a>
+       <a href="https://wa.me/2347046474965?text=Hello%20I%20am%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer">
+       <i class="fab fa-whatsapp"></i>
+       </a>
+       </div>
+       </div>
+       </div>
+       <div class="col">
+       <h3>About</h3>
+       <a href="About-us.html">About us</a>
+       <a href="Privacy-Policy.html">Privacy policy</a>
+       <a href="T&C.html">Terms & Conditions</a>
+       <a href="Contact-us.html">Contact us</a>
+       </div>
+       <div class="copyright">
+       <p>© copyright @ 2025 by SOMTO | all rights reserved!</p>
+       </div>
+        <style>
+            footer{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+
+footer .col{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+margin-bottom: 20px;
+}
+
+footer .logo{
+margin-bottom: 30px;
+}
+
+footer h3{
+font-size: 14px;
+padding-bottom: 20px;
+}
+
+footer p{
+font-size: 13px;
+margin: 0 0 8px 0;
+}
+
+footer a{
+font-size: 13px;
+text-decoration: none;
+color: #222;
+margin-bottom: 10px;
+}
+
+footer .follow{
+margin-top: 20px;
+}
+
+footer .follow i{
+color: black;
+padding-right: 4px;
+cursor: pointer;
+}
+
+footer .follow i:hover,
+footer a:hover{
+color: gold;
+}
+
+footer .copyright{
+width: 100%;
+text-align: center;
+}
+
+        </style>
+    </footer>
+    <script src="Home.js"></script>
+</body>
+</html>
